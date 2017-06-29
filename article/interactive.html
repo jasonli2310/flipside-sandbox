@@ -139,19 +139,53 @@
     </ul>
 
 
-    <div class="col-xs-6">
+    <div class="col-md-6">
       <a name="signup-anchor"></a>
       <h1 class="section-heading sign-up center-heading margin-top-0" id="article-title">The Fantasy of Impeachment</h1>
     </div>
 
   </div>
-  <div class="row section grey">
-    <div class="col-xs-6 col-lg-6">
+  <div class="row section grey" >
+    <div class="col-xs-6 col-lg-6" id="copy">
 
-      <p id="copy" class='article-text' v-bind:class="{ hoverclass: isActive }" v-on:mouseover="change" v-on:mouseout="change">After President Trump fired James Comey, the F.B.I. director, the media and political left ignited with talk of impeachment. “We are certainly moving down that path,” said Representative Ruben Gallego, Democrat of Arizona. “The Comey Firing May Be the Beginning of the End of the Trump Administration” shouted a headline in New York magazine.</p>
+      <p class='article-text'><mark v-bind:class="{ hoverclass: isActive }" v-on:mouseover="change">After President Trump fired James Comey, the F.B.I. director, the media and political left ignited with talk of impeachment. “We are certainly moving down that path,” said Representative Ruben Gallego, Democrat of Arizona. “The Comey Firing May Be the Beginning of the End of the Trump Administration” shouted a headline in New York magazine.</mark></p>
+
+      <form v-if="isActive">
+        <div class="panel-heading">
+          <h3>Answer a question</h3>
+        </div>
+        <div class="panel-body">
+
+
+
+          <div class="form-group">
+
+            <input class="form-control" placeholder="the story" v-model="answer.story">
+            <input class="form-control" placeholder="the question" v-model="answer.question">
+
+
+            <input type="radio" name="decision" id="agree" value="agree" class="decisionbutton" v-model="answer.decision">
+            <label for="agree">
+              <h2>Agree</h2>
+            </label>
+
+            <input type="radio" name="decision" id="disagree" value="disagree" class="decisionbutton" v-model="answer.decision">
+            <label for="disagree">
+              <h2>Disagree</h2>
+            </label>
+
+            <input class="form-control" placeholder="Topic Name" v-model="answer.why">
+          </div>
+
+          <button type="button" class="btn btn-primary" v-on:click = "addAnswer ">Submit</button>
+
+        </div>
+      </form>
+
+
       <p class="article-text">This is a fantasy.</p>
       <p class="article-text">Don’t get me wrong. I have long had concerns about President Trump. He can contradict himself within separate clauses of a single sentence, then lie about the contradiction. He lacks the depth of knowledge a president should have and seems far more concerned with what people on TV say about him than what is happening around him. Even if there is no evidence that the F.B.I. is investigating the president himself, it is reportedly looking at ties between advisers to his campaign and Russia.</p>
-      <p class="article-text">But let’s be realistic. Though the firing looks bad, it was also reasonable.</p>
+      <p class="article-text mark">But let’s be realistic. Though the firing looks bad, it was also reasonable.</p>
       <p class="article-text">Consider the case made by Rod Rosenstein, the highly respected deputy attorney general, who was recently confirmed by more than 90 members of the Senate. In a memo to the president, Mr. Rosenstein said Mr. Comey had usurped the attorney general’s authority last July by announcing his conclusion that the F.B.I.’s investigation into Hillary Clinton’s emails should be closed without prosecution.</p>
       <button class="btn btn-default btn-lg submission white-text blue center in-paragraph" id="your-thoughts" href="#your-thoughts-modal" data-toggle="modal">Tell Us Your Thoughts</button>
       <p class="article-text">“It is not the function of the director to make such an announcement,” Mr. Rosenstein wrote. “Compounding the error, the director ignored another longstanding principle: We do not hold press conferences to release derogatory information about the subject of a declined criminal investigation.”</p>
@@ -168,11 +202,28 @@
       <p class="article-text"></p>
       <p class="article-text"></p>
       <button class="btn btn-default btn-lg submission white-text blue center" style="margin-top: 30px;" id="submit-article" href="#submit-article-modal" data-toggle="modal">Submit an Article</button>
-    </div>
-    <div class="col-xs-6" id="chartright">
 
+
+      <div class="list-group">
+
+        <li v-for="answer in answers">
+          {{ answer.story }}
+          {{ answer.question }}
+          {{ answer.decision }}
+          {{ answer.why }}
+
+        </li>
+
+      </div>
+
+    </div>
+
+
+<!---
+    <div class="col-xs-6" id="chartright">
       <canvas id="myChart" width="400" height="400"></canvas>
     </div>
+  -->
 
     <script src="Chart.min.js"> </script>
     <script>
