@@ -2,6 +2,11 @@
 
 /* GLOBAL STYLES
 -------------------------------------------------- */
+
+.hoverclass {
+  background-color: #52aefb;
+}
+
 html {
   position: relative;
   height: 100%;
@@ -41,7 +46,6 @@ hr {
   font-weight: lighter;
   line-height: 1.5;
 }
-
 
 /* NAV STYLES
 -------------------------------------------------- */

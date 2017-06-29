@@ -147,7 +147,8 @@
   </div>
   <div class="row section grey">
     <div class="col-xs-6 col-lg-6">
-      <p class="article-text">After President Trump fired James Comey, the F.B.I. director, the media and political left ignited with talk of impeachment. “We are certainly moving down that path,” said Representative Ruben Gallego, Democrat of Arizona. “The Comey Firing May Be the Beginning of the End of the Trump Administration” shouted a headline in New York magazine.</p>
+
+      <p id="copy" class='article-text' v-bind:class="{ hoverclass: isActive }" v-on:mouseover="change" v-on:mouseout="change">After President Trump fired James Comey, the F.B.I. director, the media and political left ignited with talk of impeachment. “We are certainly moving down that path,” said Representative Ruben Gallego, Democrat of Arizona. “The Comey Firing May Be the Beginning of the End of the Trump Administration” shouted a headline in New York magazine.</p>
       <p class="article-text">This is a fantasy.</p>
       <p class="article-text">Don’t get me wrong. I have long had concerns about President Trump. He can contradict himself within separate clauses of a single sentence, then lie about the contradiction. He lacks the depth of knowledge a president should have and seems far more concerned with what people on TV say about him than what is happening around him. Even if there is no evidence that the F.B.I. is investigating the president himself, it is reportedly looking at ties between advisers to his campaign and Russia.</p>
       <p class="article-text">But let’s be realistic. Though the firing looks bad, it was also reasonable.</p>
@@ -264,5 +265,10 @@ ga('send', 'pageview');
 
 <!-- Custom script -->
 <script src="scripts/main.js"></script>
+
+<!--this are the vue.js scripts-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.4/vue.js"></script>
+<script src="scripts/app.js"></script>
+
 </body>
 </html>
