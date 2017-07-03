@@ -160,7 +160,7 @@
 
           <div class="form-group">
 
-          <!--  <input class="form-control" placeholder="the question" v-model="answer.question"> -->
+            <!--  <input class="form-control" placeholder="the question" v-model="answer.question"> -->
 
 
             <input type="radio" name="decision" id="agree" value="agree" class="decisionbutton" v-model="answer.decision">
@@ -254,44 +254,51 @@
 
 
     <div class="col-xs-6" id="chartright">
-      <canvas id="myChart" width="400" height="400"></canvas>
+      <canvas id="scatterPlot" width="400" height="400"></canvas>
     </div>
 
     <script src="Chart.min.js"> </script>
     <script>
-    var ctx = document.getElementById("myChart").getContext('2d');
-    var myChart = new Chart(ctx, {
-      type: 'bar',
+    var ctx = document.getElementById("scatterPlot").getContext('2d');
+    var scatterChart = new Chart(ctx, {
+      type: 'bubble',
       data: {
-        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+        fill: false,
+
         datasets: [{
-          label: '# of Votes',
-          data: [12, 19, 3, 5, 2, 3],
-          backgroundColor: [
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(54, 162, 235, 0.2)',
-            'rgba(255, 206, 86, 0.2)',
-            'rgba(75, 192, 192, 0.2)',
-            'rgba(153, 102, 255, 0.2)',
-            'rgba(255, 159, 64, 0.2)'
-          ],
-          borderColor: [
-            'rgba(255,99,132,1)',
-            'rgba(54, 162, 235, 1)',
-            'rgba(255, 206, 86, 1)',
-            'rgba(75, 192, 192, 1)',
-            'rgba(153, 102, 255, 1)',
-            'rgba(255, 159, 64, 1)'
-          ],
-          borderWidth: 1
+          label: 'Scatter Dataset',
+          backgroundColor: 'blue',
+          data: [{
+            x: -10,
+            y: 0.5
+          }, {
+            x: 0,
+            y: 9.6
+          }, {
+            x: 10,
+            y: 5
+          }]
+        },
+        {
+          label: 'Bubbles',
+          backgroundColor: 'red',
+          data: [{
+            x: -11,
+            y: 2.5
+          }, {
+            x: 12,
+            y: 9.6
+          }, {
+            x: 10,
+            y: 5.2
+          }]
         }]
       },
       options: {
         scales: {
-          yAxes: [{
-            ticks: {
-              beginAtZero:true
-            }
+          xAxes: [{
+            type: 'linear',
+            position: 'bottom'
           }]
         }
       }
@@ -315,12 +322,28 @@
   </footer>
 </div><!-- /.container -->
 
+
+
 <!-- JQuery and Bootstrap core JS -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <!-- Firebase script -->
 <script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
+
+
+<!-- Custom script -->
+<script src="scripts/main.js"></script>
+
+<!--vue.js scripts-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.4/vue.js"></script>
+<script src="scripts/app.js"></script>
+
+<!--chart.js scripts-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js" />
+
+
+
 <script>
 // Initialize Firebase
 var config = {
@@ -345,13 +368,5 @@ ga('create', 'UA-97371368-1', 'auto');
 ga('send', 'pageview');
 
 </script>
-
-<!-- Custom script -->
-<script src="scripts/main.js"></script>
-
-<!--this are the vue.js scripts-->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.4/vue.js"></script>
-<script src="scripts/app.js"></script>
-
 </body>
 </html>
