@@ -14,9 +14,9 @@ html {
 }
 body {
   padding-top:70px;
-  color: #5a5a5a;
+  color: #212121;
   font-family: 'Montserrat', sans-serif;
-  background-color: #e9ebee;
+  background-color: 'white';
 }
 .container {
   margin-left: 0;
@@ -55,6 +55,7 @@ label {
 
 .decisionbutton {
   visibility: hidden;
+
 }
 
 input:checked + label {
@@ -116,7 +117,7 @@ input:checked + label {
   padding-top: 10px;
 }
 .logo {
-  height: 100px;
+  height: 60px;
   position: relative;
   top: -10px;
 }
@@ -124,7 +125,7 @@ input:checked + label {
   margin-top: 20px;
 }
 .bottom-logo {
-  height: 60px;
+  height: 30px;
   margin-top: 40px;
 }
 .section {

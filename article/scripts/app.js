@@ -10,6 +10,7 @@ var vm = new Vue({
   data: {
     answer: {question: "", decision: "", why: ""},
 
+    decided: false,
     isActive: [false, false],
 
     answers: [
@@ -28,6 +29,9 @@ var vm = new Vue({
       this.answers.push(this.answer);
       this.answer = {question: "", decision: "", why: ""};
 
+    },
+    postDecision: function(){
+      this.decided = true;
     }
   }
 });

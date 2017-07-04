@@ -31,6 +31,11 @@ $(function(){
 });
 
 
+//Jason's JS
+
+
+/////////
+
 var database = firebase.database();
 var userId;
 
