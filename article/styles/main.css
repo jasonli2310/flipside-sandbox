@@ -80,6 +80,10 @@ hr {
   padding-right: 20px;
 }
 
+.js-metabarMiddle {
+  align-items: center;
+}
+
 .u-maxWidth1000 {
   max-width: 1000px;
 }
@@ -89,16 +93,33 @@ hr {
   z-index: 500;
 }
 
+.metabar-block{
+  position: relative;
+  z-index: 500;
+}
+
+.u-overflowHiddeny{
+  overflow-y: hidden;
+}
+
+.u-height40{
+  height: 40px!important;
+}
+
 .u-height65{
   height: 65px!important;
 }
 
 .u-height25{
-  height: 25;
+  height: 25px;
 }
 
 .u-floatLeft{
   float: left!important;
+}
+
+.u-floatRight{
+  float: right!important;
 }
 
 .nav-brand{
@@ -121,6 +142,59 @@ hr {
   display: inline-block;
   vertical-align: middle;
 }
+
+.u-verticalAlignMiddle {
+  vertical-align: middle !important;
+}
+
+.u-marginRight20{
+  margin-right: 13px;
+}
+
+.u-marginAuto{
+  margin-left: auto !important;
+  margin-right: auto!important;
+}
+
+.u-borderRightLighter{
+  border-right: 1px solid rgba(0, 0, 0, 0.15)!important;
+}
+
+.topic{
+  color: #3d3d3d;
+  font-size: 20px!important;
+}
+
+.button{
+height: 37px;
+font-size: 14px;
+font-weight: 340;
+}
+
+.u-textAlignLeft{
+  text-align: left!important;
+}
+
+.u-noWrap{
+  white-space: nowrap;
+}
+
+.u-paddingBottom100{
+  padding-bottom: 100px;
+}
+
+.u-overflowX {
+  overflow-x: auto;
+}
+
+.metabar-navItem {
+  padding: 10px, 20px, 18px, 0
+}
+
+.u-fontSize14{
+  font-size: 14px;
+}
+
 
 /*form styles*/
 label {
