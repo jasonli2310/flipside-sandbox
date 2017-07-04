@@ -13,7 +13,7 @@ html {
   overflow-x: hidden;
 }
 body {
-  padding-top:70px;
+  /*padding-top:70px; */
   color: #212121;
   font-family: 'Montserrat', sans-serif;
   background-color: 'white';
@@ -45,6 +45,81 @@ hr {
   font-size: 20px;
   font-weight: lighter;
   line-height: 1.5;
+}
+
+/*nav styles*/
+.metabar{
+  position: fixed!important;
+  display: block;
+  width: 100%;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  box-sizing: border-box;
+  top: 0;
+  z-index: 500;
+  background: #fff;
+  color: rgba(0, 0, 0, 0.44);
+}
+
+.u-boxShadow{
+  box-shadow: 0 2px 2px -2px;
+}
+
+.u-backgroundTransparent{
+  background: rgba(255, 255, 255, 0.95)!important;
+}
+.metabar-inner{
+  position: relative;
+}
+.u-paddingLeft20 {
+  padding-left: 20px;
+}
+
+.u-paddingRight20 {
+  padding-right: 20px;
+}
+
+.u-maxWidth1000 {
+  max-width: 1000px;
+}
+
+.metabar-top{
+  position: relative;
+  z-index: 500;
+}
+
+.u-height65{
+  height: 65px!important;
+}
+
+.u-height25{
+  height: 25;
+}
+
+.u-floatLeft{
+  float: left!important;
+}
+
+.nav-brand{
+  display: inline-block;
+  padding-top: 10px;
+  padding-right: 14px;
+  z-index: 700;
+  border: 0;
+}
+
+.u-inlineBlock {
+  display: inline-block;
+}
+
+.u-verticalAlignTop{
+  vertical-align: top;
+}
+
+.u-alignMiddle .u-alignBlock{
+  display: inline-block;
+  vertical-align: middle;
 }
 
 /*form styles*/
@@ -117,7 +192,7 @@ input:checked + label {
   padding-top: 10px;
 }
 .logo {
-  height: 60px;
+  height: 30px;
   position: relative;
   top: -10px;
 }
