@@ -204,18 +204,37 @@
           <div class="opinion-result centered" id="opresult">
 
 
-            <div class="list-group">
+            <div class="learn-more u-paddingLeft20" style="display:inline;" v-for="group in group">
+              <button type="button" name="button" class="u-paddingRight20" :id="group.name" v-on:click="select($event)">{{group.name}}</button>
+            </div>
 
 
-            <button type="button" name="button">hey</button>
-            <button type="button" name="button">there</button>
-            <button type="button" name="button">now</button>
+            <div v-if="showing === 'A'">
+
+              <li>{{group[0].opinion1}}</li>
+              <li>{{group[0].opinion2}}</li>
+              <li>{{group[0].opinion3}}</li>
+
+            </div>
+            <div v-else-if="showing === 'B'">
+              <li>{{group[1].opinion1}}</li>
+              <li>{{group[1].opinion2}}</li>
+              <li>{{group[1].opinion3}}</li>
+            </div>
+            <div v-else-if="showing === 'C'">
+              <li>{{group[2].opinion1}}</li>
+              <li>{{group[2].opinion2}}</li>
+              <li>{{group[2].opinion3}}</li>
+            </div>
+            <div v-else-if="showing === 'D'">
+              <li>{{group[3].opinion1}}</li>
+              <li>{{group[3].opinion2}}</li>
+              <li>{{group[3].opinion3}}</li>
+            </div>
+
 
           </div>
-
-
         </div>
-
 
 
         <div class="col-md-offset-5 col-md-7" id="copy">
