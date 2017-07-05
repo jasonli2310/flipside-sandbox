@@ -3,10 +3,6 @@
 /* GLOBAL STYLES
 -------------------------------------------------- */
 
-.hoverclass {
-  background-color: #52aefb;
-}
-
 html {
   position: relative;
   height: 100%;
@@ -47,6 +43,11 @@ hr {
   line-height: 1.5;
 }
 
+mark{
+  background-color: #EDDEFB;
+  cursor: pointer;
+}
+
 /*nav styles*/
 .metabar{
   position: fixed!important;
@@ -84,8 +85,8 @@ hr {
   align-items: center;
 }
 
-.u-maxWidth1000 {
-  max-width: 1000px;
+.u-maxWidth1200 {
+  max-width: 1200px;
 }
 
 .metabar-top{
@@ -117,10 +118,6 @@ hr {
 
 .u-height25{
   height: 25px;
-}
-
-.u-height100{
-  height: 100px;
 }
 
 .u-floatLeft{
@@ -171,6 +168,7 @@ hr {
 
 .topic{
   color: #3d3d3d;
+  overflow: hidden;
 }
 
 .u-fontSize25{
@@ -179,7 +177,7 @@ hr {
 
 .button{
 height: 37px;
-font-size: 16px;
+font-size: 14px;
 vertical-align: middle;
 }
 
@@ -219,8 +217,8 @@ vertical-align: middle;
   overflow-x: auto;
 }
 
-.u-fontSize16{
-  font-size: 16px!important;
+.u-fontSize14{
+  font-size: 14px!important;
 }
 
 .u-paddingTop5{
@@ -238,6 +236,12 @@ vertical-align: middle;
   color: rgba(0, 0, 0, 0.44)!important;
   fill: rgba(0, 0, 0, 0.44)!important;
 }
+
+.u-fixed{
+  position: fixed;
+}
+
+
 /*form styles*/
 label {
     cursor: pointer;
@@ -262,7 +266,7 @@ input:checked + label {
 }
 
 .nav-text{
-  font-size: 16px;
+  font-size: 14px;
   padding-top: 12px;
 }
 
@@ -284,6 +288,18 @@ input:checked + label {
 
 /* CONTENT
 -------------------------------------------------- */
+
+.section-inner{
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 20px;
+}
+
+.u-maxWidth400{
+  max-width: 500px;
+}
+
 #your-thoughts-textarea {
   display: none;
 }
@@ -298,12 +314,30 @@ input:checked + label {
   margin-bottom: 15px;
 }
 .article-text {
-  font-family: georgia,"times new roman",times,serif;
-  font-size: 20px;
+  font-family: georgia,"Times New Roman",times,serif;
+  font-size: 19px;
+  padding-top: 16px;
+  line-height: 1.80;
+  letter-spacing: -.003em;
 }
 
 #article-title{
   font-weight: ;
+}
+
+.hoverclass {
+  background-color: #ab68ca;
+}
+
+.centered{
+  margin-left: auto;
+  margin-right: auto;
+}
+.article{
+  word-wrap: break-word;
+  word-break: break-word;
+  outline: 0;
+  padding-top: 120px;
 }
 
 .content .col-lg-4 {
