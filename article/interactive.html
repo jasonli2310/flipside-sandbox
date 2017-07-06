@@ -242,32 +242,32 @@
           <h1 class="section-heading center-heading margin-top-0" id="article-title">The Fantasy of Impeachment</h1>
 
 
-          <p class='article-text'><mark v-bind:class="{ hoverclass: isActive[0]}" v-on:mouseover="$set(isActive, 0, !isActive[0])">After President Trump fired James Comey, the F.B.I. director, the media and political left ignited with talk of impeachment. “We are certainly moving down that path,” said Representative Ruben Gallego, Democrat of Arizona. “The Comey Firing May Be the Beginning of the End of the Trump Administration” shouted a headline in New York magazine.</mark></p>
+          <p class='article-text'><mark v-bind:class="{ hoverclass: isActive[0]}" v-on:mouseover="$set(isActive, 0, true)">After President Trump fired James Comey, the F.B.I. director, the media and political left ignited with talk of impeachment. “We are certainly moving down that path,” said Representative Ruben Gallego, Democrat of Arizona. “The Comey Firing May Be the Beginning of the End of the Trump Administration” shouted a headline in New York magazine.</mark></p>
 
-          <form v-if="isActive[0]">
 
-            <div class="form-group">
-
-              <!--  <input class="form-control" placeholder="the question" v-model="answer.question"> -->
-
-              <input type="radio" name="decision" id="agree" value="agree" class="decisionbutton" v-model="answer.decision" v-on:click="postDecision">
+          <div v-if="isActive[0]">
+            <div class="form-group" id="firstform">
+              <input type="radio" name="decision" id="agree" value="agree" class="decisionbutton" v-model="answer.decision" v-on:click="">
               <label for="agree">
                 <h2>Agree</h2>
               </label>
 
-              <input type="radio" name="decision" id="disagree" value="disagree" class="decisionbutton" v-model="answer.decision" v-on:click="postDecision">
+              <input type="radio" name="decision" id="disagree" value="disagree" class="decisionbutton" v-model="answer.decision" v-on:click="">
               <label for="disagree">
                 <h2>Disagree</h2>
               </label>
+
+
+
             </div>
 
             <transition name="slide">
               <div class="form-group" v-show="decided">
                 <input class="form-control" placeholder="Why?" v-model="answer.why">
-                <button type="button" class="btn btn-primary" v-on:click = "addAnswer('onepointone')">Submit</button>
+                <button type="button" class="btn btn-primary" v-on:click = "addAnswer('onepointone'), $set(isActive, 0, false)">Submit</button>
               </div>
             </transition>
-          </form>
+          </div>
 
 
           <p class="article-text">This is a fantasy.</p>
@@ -283,7 +283,7 @@
           <p class="article-text"> <mark v-bind:class="{ hoverclass: isActive[1]}" v-on:mouseover="$set(isActive, 1, !isActive[1])">Last, along with the F.B.I.’s counterintelligence investigation into Russian meddling, there is a Senate investigation. </mark>The chairman of the Intelligence Committee, Senator Richard Burr, Republican of North Carolina, and its ranking member, Senator Mark Warner, Democrat of Virginia, have criticized Mr. Trump’s handling of the Comey termination and are committed to the investigation. A number of other Republican Senators, including John McCain and Ben Sasse, have also raised questions about the firing.</p>
 
 
-          <form v-if="isActive[1]">
+          <div v-if="isActive[1]">
             <div class="panel-heading">
               <h3>Answer a question</h3>
             </div>
@@ -291,7 +291,7 @@
 
 
 
-              <div class="form-group">
+              <div class="form-group" id="secondform">
 
                 <!-- <input class="form-control" type="hidden" v-model="answer.question"> -->
 
@@ -313,7 +313,7 @@
               <button type="button" class="btn btn-primary" v-on:click = "addAnswer('onepointtwo')">Submit</button>
 
             </div>
-          </form>
+          </div>
 
 
           <p class="article-text">Instead of engaging in conspiracy theories about President Trump’s Russian connections, liberals would be better served demanding that Congress exercise its powers of the purse and investigation to ensure honesty and integrity in the confirmation of a new F.B.I. director and in the operation of the agency.</p>

@@ -37,7 +37,7 @@ var results = new Vue ({
   data: {
     groupkey: {group: '', opinion1: '', opinion2: '', opinion3: ''},
 
-    showing: '',
+    showing: 'B',
 
     group: [
       {name: "A", opinion1: 'I like puppies', opinion2: 'I like dogs', opinion3: 'i like cats'},
