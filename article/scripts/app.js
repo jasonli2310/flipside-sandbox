@@ -3,31 +3,47 @@
 var vm = new Vue({
   el: '#copy',
   data: {
-    answer: {question: "", decision: "", why: ""},
+    answer: {question: "", decision: ""},
 
-    decided: false,
-    isActive: [false, false],
+    why:{question: "", response:""},
+
+
+    agreeForm:{question1: false, question2: false},
+    whyForm:{question1: false, question2: false},
 
     answers: [
-      {question: "1", decision: "agree", why: "because I like it"},
-      {question: "2", decision: "agree", why: "because I love it"},
-      {question: "3", decision: "disagree", why: "because I hate it"}
-    ]
+      {question: "1", decision: "agree"},
+      {question: "2", decision: "agree"},
+      {question: "3", decision: "disagree"}
+    ],
+
+    whys: [],
 
   },
   methods: {
     changeit: function(index){
       this.isActive[index] = !this.isActive[index];
     },
-    addAnswer: function (input) {
-      this.answer.question = input;
+
+    addAnswer: function (event) {
+      currentid = event.currentTarget.id;
+      this.answer.question = currentid;
       this.answers.push(this.answer);
-      this.answer = {question: "", decision: "", why: ""};
+      this.answer = {question: "", decision: ""};
 
     },
+
+    addWhy: function (event) {
+      currentid = event.currentTarget.id;
+      this.why.question = currentid;
+      this.whys.push(this.why);
+      this.why = {question: "", decision: ""};
+
+    },
+
     postDecision: function(){
       this.decided = true;
-    }
+    },
   }
 });
 

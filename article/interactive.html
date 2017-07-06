@@ -231,8 +231,6 @@
               <li>{{group[3].opinion2}}</li>
               <li>{{group[3].opinion3}}</li>
             </div>
-
-
           </div>
         </div>
 
@@ -242,32 +240,30 @@
           <h1 class="section-heading center-heading margin-top-0" id="article-title">The Fantasy of Impeachment</h1>
 
 
-          <p class='article-text'><mark v-bind:class="{ hoverclass: isActive[0]}" v-on:mouseover="$set(isActive, 0, true)">After President Trump fired James Comey, the F.B.I. director, the media and political left ignited with talk of impeachment. “We are certainly moving down that path,” said Representative Ruben Gallego, Democrat of Arizona. “The Comey Firing May Be the Beginning of the End of the Trump Administration” shouted a headline in New York magazine.</mark></p>
+          <p class='article-text'><mark id="0" v-on:click="agreeForm.question1 = true">After President Trump fired James Comey, the F.B.I. director, the media and political left ignited with talk of impeachment. “We are certainly moving down that path,” said Representative Ruben Gallego, Democrat of Arizona. “The Comey Firing May Be the Beginning of the End of the Trump Administration” shouted a headline in New York magazine.</mark></p>
 
 
-          <div v-if="isActive[0]">
-            <div class="form-group" id="firstform">
-              <input type="radio" name="decision" id="agree" value="agree" class="decisionbutton" v-model="answer.decision" v-on:click="">
+          <div>
+            <div class="form-group" v-if="agreeForm.question1">
+              <input type="radio" name="decision" id="question1" value="agree" class="raadio" v-model="answer.decision" v-on:click="addAnswer($event), agreeForm.question1 = false, whyForm.question1 = true">
               <label for="agree">
                 <h2>Agree</h2>
               </label>
 
-              <input type="radio" name="decision" id="disagree" value="disagree" class="decisionbutton" v-model="answer.decision" v-on:click="">
+              <input type="radio" name="decision" id="question1" value="disagree" class="raadio" v-model="answer.decision" v-on:click="addAnswer($event), agreeForm.question1 = false, whyForm.question1 = true">
               <label for="disagree">
                 <h2>Disagree</h2>
               </label>
-
-
-
             </div>
 
             <transition name="slide">
-              <div class="form-group" v-show="decided">
-                <input class="form-control" placeholder="Why?" v-model="answer.why">
-                <button type="button" class="btn btn-primary" v-on:click = "addAnswer('onepointone'), $set(isActive, 0, false)">Submit</button>
+              <div class="form-group" v-show="whyForm.question1">
+                <input class="form-control" placeholder="Why?" v-model="why.response">
+                <button id="question1" type="button" class="btn btn-primary" v-on:click = "addWhy($event)">Submit</button>
               </div>
             </transition>
           </div>
+
 
 
           <p class="article-text">This is a fantasy.</p>
@@ -280,10 +276,10 @@
           <p class="article-text">Mr. Comey only made things worse for himself by giving wrong information to Congress about emails belonging to Huma Abedin, Mrs. Clinton’s aide. Mr. Comey’s testimony was under oath, and the F.B.I. had to retract its own director’s testimony. No one can deny this was a bad thing.</p>
           <p class="article-text">Though they are criticizing his firing now, Democrats were calling for Mr. Comey’s head after he reopened the Clinton email investigation late in the campaign last year. If he was so bad then, is he really so good now? It also is telling that two of President Trump’s most vocal critics within the Republican Party, Senator Susan Collins of Maine and Senator Lindsey Graham of South Carolina, both embraced Mr. Comey’s termination.</p>
           <p class="article-text">Underlying liberals’ calls for impeachment is the belief that Mr. Comey’s firing will squelch the F.B.I.’s investigation into Russian campaign meddling. But there are good reasons to think that the inquiry won’t be affected. The F.B.I.’s interim leader, Andrew McCabe, vowed on Thursday that the investigation would continue apace. Likewise, the Senate will have to confirm Mr. Trump’s nominee to replace Mr. Comey, and Republicans seem determined to keep the bureau independent. More than half the Senate Republicans have already raised concerns about how Mr. Comey was fired. Many of them are privately worried that Mr. Trump could lead them to electoral disaster. They are not going to serve as yes men for a yes man at the F.B.I.</p>
-          <p class="article-text"> <mark v-bind:class="{ hoverclass: isActive[1]}" v-on:mouseover="$set(isActive, 1, !isActive[1])">Last, along with the F.B.I.’s counterintelligence investigation into Russian meddling, there is a Senate investigation. </mark>The chairman of the Intelligence Committee, Senator Richard Burr, Republican of North Carolina, and its ranking member, Senator Mark Warner, Democrat of Virginia, have criticized Mr. Trump’s handling of the Comey termination and are committed to the investigation. A number of other Republican Senators, including John McCain and Ben Sasse, have also raised questions about the firing.</p>
+          <p class="article-text"> <mark v-bind:class="{ hoverclass: agreeForm[1]}" v-on:mouseover="$set(agreeForm, 1, !agreeForm[1])">Last, along with the F.B.I.’s counterintelligence investigation into Russian meddling, there is a Senate investigation. </mark>The chairman of the Intelligence Committee, Senator Richard Burr, Republican of North Carolina, and its ranking member, Senator Mark Warner, Democrat of Virginia, have criticized Mr. Trump’s handling of the Comey termination and are committed to the investigation. A number of other Republican Senators, including John McCain and Ben Sasse, have also raised questions about the firing.</p>
 
 
-          <div v-if="isActive[1]">
+          <div v-if="agreeForm[1]">
             <div class="panel-heading">
               <h3>Answer a question</h3>
             </div>
@@ -331,7 +327,11 @@
             <li v-for="answer in answers">
               {{ answer.question }}
               {{ answer.decision }}
-              {{ answer.why }}
+            </li>
+
+            <li v-for="why in whys">
+              {{ why.question }}
+              {{ why.response }}
             </li>
           </div>
         </div>

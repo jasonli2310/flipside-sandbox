@@ -48,6 +48,10 @@ mark{
   cursor: pointer;
 }
 
+mark:hover{
+  background-color: #52aefb;
+}
+
 /*nav styles*/
 .metabar{
   position: fixed!important;
@@ -248,8 +252,8 @@ label {
 	}
 }
 
-.decisionbutton {
-  visibility: hidden;
+input {
+  display: none;
 
 }
 
