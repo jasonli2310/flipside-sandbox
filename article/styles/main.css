@@ -3,6 +3,12 @@
 /* GLOBAL STYLES
 -------------------------------------------------- */
 
+
+.charting{
+overflow-y: scroll;
+}
+
+
 html {
   position: relative;
   height: 100%;
@@ -45,6 +51,7 @@ hr {
 
 mark{
   background-color: #EDDEFB;
+  opacity: 50%;
   cursor: pointer;
 }
 
@@ -173,10 +180,11 @@ mark:hover{
 .topic{
   color: #3d3d3d;
   overflow: hidden;
+  font-size: 25px;
 }
 
 .u-fontSize25{
-  font-size: 25px!important;
+  font-size: 25px;
 }
 
 .button{
@@ -244,8 +252,6 @@ vertical-align: middle;
 .u-fixed{
   position: fixed;
 }
-
-
 /*form styles*/
 label {
     cursor: pointer;
@@ -341,7 +347,7 @@ input:checked + label {
   word-wrap: break-word;
   word-break: break-word;
   outline: 0;
-  padding-top: 120px;
+  padding-top: 105px;
 }
 
 .content .col-lg-4 {
@@ -596,6 +602,16 @@ footer {
   }
 }
 @media(min-width:1200px){
+
+}
+
+@media(max-width:767px){
+  .topic{
+    font-size: 15px;
+    padding-top: 5px;
+  }
+
+
 
 }
 
