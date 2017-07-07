@@ -3,11 +3,9 @@
 /* GLOBAL STYLES
 -------------------------------------------------- */
 
-
-.charting{
-overflow-y: scroll;
+.raadio{
+  display: none;
 }
-
 
 html {
   position: relative;
@@ -50,13 +48,18 @@ hr {
 }
 
 mark{
-  background-color: #EDDEFB;
+  background-color: #FFF0FF;
   opacity: 50%;
   cursor: pointer;
 }
 
 mark:hover{
-  background-color: #52aefb;
+  background-color: #EDDEFB;
+}
+
+.u-button{
+  background-color: #E090E0;
+  margin-right: 15px;
 }
 
 /*nav styles*/
@@ -124,7 +127,7 @@ mark:hover{
 }
 
 .u-height65{
-  height: 65px!important;
+  height: 65px;
 }
 
 .u-height25{
@@ -212,7 +215,6 @@ vertical-align: middle;
   text-align: left!important;
 }
 
-
 .u-noWrap{
   white-space: nowrap;
 }
@@ -230,7 +232,7 @@ vertical-align: middle;
 }
 
 .u-fontSize14{
-  font-size: 14px!important;
+  font-size: 14px;
 }
 
 .u-paddingTop5{
@@ -296,6 +298,64 @@ input:checked + label {
 }
 
 
+
+/* CHART
+-------------------------------------------------- */
+.chart-fixed{
+overflow-y: scroll;
+position: fixed;
+}
+
+.u-maxHeight350{
+  max-height: 390px;
+}
+
+.centered{
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  text-align: center;
+}
+
+.u-absolute{
+  overflow-y: scroll;
+  float: left;
+  position: absolute;
+}
+
+.clusterbutton{
+font-size: 26px;
+cursor: pointer;
+
+}
+
+.cl-effect-15 a {
+	color: rgba(0,0,0,0.2);
+	font-weight: 700;
+	text-shadow: none;
+}
+
+.cl-effect-15 a::before {
+	color: #fff;
+	content: attr(data-hover);
+	position: absolute;
+	-webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
+	-moz-transition: -moz-transform 0.3s, opacity 0.3s;
+	transition: transform 0.3s, opacity 0.3s;
+}
+
+.cl-effect-15 a:hover::before,
+.cl-effect-15 a:focus::before {
+	-webkit-transform: scale(0.9);
+	-moz-transform: scale(0.9);
+	transform: scale(0.9);
+	opacity: 0;
+}
+
+
+
+
+
 /* CONTENT
 -------------------------------------------------- */
 
@@ -306,8 +366,14 @@ input:checked + label {
   padding-top: 20px;
 }
 
+.section-content{
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 20px;
+}
+
 .u-maxWidth400{
-  max-width: 500px;
+  max-width: 1200px;
 }
 
 #your-thoughts-textarea {
@@ -339,10 +405,7 @@ input:checked + label {
   background-color: #ab68ca;
 }
 
-.centered{
-  margin-left: auto;
-  margin-right: auto;
-}
+
 .article{
   word-wrap: break-word;
   word-break: break-word;
@@ -610,10 +673,22 @@ footer {
     font-size: 15px;
     padding-top: 5px;
   }
-
-
+  .u-height65{
+    height: 56px;
+  }
+  .u-fontSize14{
+    font-size: 12px!important;
+  }
+  .u-height40{
+    height: 37px;
+  }
 
 }
+@@media (max-width:992px) {
+  .chart-fixed{
+position: relative; }
+}
+
 
 /* CONTACT
 -------------------------------------------------- */

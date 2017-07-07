@@ -188,22 +188,20 @@
     </div>
   </div>
 </div>
-<main role="main">
-  <div class="container content article">
-    <div class="section-inner u-maxWidth1500 u-paddingRight20 u-paddingLeft20">
+<div class="container content article">
+  <div class="section-content u-maxWidth1500 u-paddingRight20 u-paddingLeft20">
 
+    <div class="row white">
 
-      <div class="row white" >
-
-        <div class="col-sm-5 u-fixed u-maxWidth400" id="chartright">
-          <div class="charting u-paddingRight12">
-            <canvas id="scatterPlot" width="320" height="250">
+      <div class="col-sm-5 u-paddingTop5">
+        <div>
+          <div id="scatter" class="chart-fixed u-maxWidth400">
+            <canvas id="scatterPlot" width="400" height="350" class="u-maxHeight350">
             </canvas>
 
-            <h4>Learn what others think:</h4>
             <div class="opinion-result centered" id="opresult">
               <div class="learn-more u-paddingRight20" style="display:inline;" v-for="group in group">
-                <button type="button" name="button" class="u-paddingRight20" :id="group.name" v-on:click="select($event)">{{group.name}}</button>
+                <a class="u-paddingRight20 clusterbutton" v-bind:style="{ color: colors[group.name]}" :id="group.name" v-on:click="select($event)">{{group.name}}</a>
               </div>
 
               <div v-if="showing === 'A'">
@@ -236,115 +234,161 @@
                 <li>{{group[5].opinion2}}</li>
                 <li>{{group[5].opinion3}}</li>
               </div>
+              <br><br><br>
             </div>
           </div>
         </div>
-
-
-        <div class="col-sm-offset-5 col-sm-7" id="copy">
-
-          <h1 class="section-heading center-heading margin-top-0" id="article-title">The Fantasy of Impeachment</h1>
-
-
-          <p class='article-text'><mark v-on:click="agreeForm.question1 = true">After President Trump fired James Comey, the F.B.I. director, the media and political left ignited with talk of impeachment. “We are certainly moving down that path,” said Representative Ruben Gallego, Democrat of Arizona. “The Comey Firing May Be the Beginning of the End of the Trump Administration” shouted a headline in New York magazine.</mark></p>
-          <form>
-            <div class="form-group" v-if="agreeForm.question1">
-              <input type="radio" name="decision" id="question1" value="agree" v-model="answer.decision" v-on:click="addAnswer($event), agreeForm.question1 = false, whyForm.question1 = true">
-              <label for="agree">
-                <h2>Agree</h2>
-              </label>
-              <input type="radio" name="decision" id="question1" value="disagree" v-model="answer.decision" v-on:click="addAnswer($event), agreeForm.question1 = false, whyForm.question1 = true">
-              <label for="disagree">
-                <h2>Disagree</h2>
-              </label>
-              <input type="radio" name="decision" id="question1" value="disagree" v-model="answer.decision" v-on:click="addAnswer($event), agreeForm.question1 = false, whyForm.question1 = true">
-              <label for="disagree">
-                <h2>Not sure</h2>
-              </label>
-            </div>
-            <transition name="slide">
-              <div class="form-group" v-show="whyForm.question1">
-                <input class="form-control" placeholder="Why?" v-model="why.response">
-                <button id="question1" type="button" class="btn btn-primary" v-on:click = "addWhy($event), whyForm.question1 = false">Submit</button>
-              </div>
-            </transition>
-          </form>
-          <p class="article-text">This is a fantasy.</p>
-          <p class="article-text">Don’t get me wrong. I have long had concerns about President Trump. He can contradict himself within separate clauses of a single sentence, then lie about the contradiction. He lacks the depth of knowledge a president should have and seems far more concerned with what people on TV say about him than what is happening around him. Even if there is no evidence that the F.B.I. is investigating the president himself, it is reportedly looking at ties between advisers to his campaign and Russia.</p>
-          <p class="article-text">But let’s be realistic. Though the firing looks bad, it was also reasonable.</p>
-          <p class="article-text">Consider the case made by Rod Rosenstein, the highly respected deputy attorney general, who was recently confirmed by more than 90 members of the Senate. In a memo to the president, Mr. Rosenstein said Mr. Comey had usurped the attorney general’s authority last July by announcing his conclusion that the F.B.I.’s investigation into Hillary Clinton’s emails should be closed without prosecution.</p>
-          <p class="article-text">“It is not the function of the director to make such an announcement,” Mr. Rosenstein wrote. “Compounding the error, the director ignored another longstanding principle: We do not hold press conferences to release derogatory information about the subject of a declined criminal investigation.”</p>
-          <p class="article-text">Mr. Rosenstein likewise documented concerns from attorneys general from both parties. “The way the director handled the conclusion of the email investigation was wrong,” he concluded. “As a result, the F.B.I. is unlikely to regain public and congressional trust until it has a director who understands the gravity of the mistakes and pledges never to repeat them.”</p>
-          <p class="article-text">Mr. Comey only made things worse for himself by giving wrong information to Congress about emails belonging to Huma Abedin, Mrs. Clinton’s aide. Mr. Comey’s testimony was under oath, and the F.B.I. had to retract its own director’s testimony. No one can deny this was a bad thing.</p>
-          <p class="article-text">Though they are criticizing his firing now, Democrats were calling for Mr. Comey’s head after he reopened the Clinton email investigation late in the campaign last year. If he was so bad then, is he really so good now? It also is telling that two of President Trump’s most vocal critics within the Republican Party, Senator Susan Collins of Maine and Senator Lindsey Graham of South Carolina, both embraced Mr. Comey’s termination.</p>
-          <p class="article-text">Underlying liberals’ calls for impeachment is the belief that Mr. Comey’s firing will squelch the F.B.I.’s investigation into Russian campaign meddling. But there are good reasons to think that the inquiry won’t be affected. The F.B.I.’s interim leader, Andrew McCabe, vowed on Thursday that the investigation would continue apace. Likewise, the Senate will have to confirm Mr. Trump’s nominee to replace Mr. Comey, and Republicans seem determined to keep the bureau independent. More than half the Senate Republicans have already raised concerns about how Mr. Comey was fired. Many of them are privately worried that Mr. Trump could lead them to electoral disaster. They are not going to serve as yes men for a yes man at the F.B.I.</p>
-          <p class="article-text"> <mark v-on:click="agreeForm.question2 = true">Last, along with the F.B.I.’s counterintelligence investigation into Russian meddling, there is a Senate investigation. </mark>The chairman of the Intelligence Committee, Senator Richard Burr, Republican of North Carolina, and its ranking member, Senator Mark Warner, Democrat of Virginia, have criticized Mr. Trump’s handling of the Comey termination and are committed to the investigation. A number of other Republican Senators, including John McCain and Ben Sasse, have also raised questions about the firing.</p>
-          <form>
-            <div class="form-group" v-if="agreeForm.question2">
-              <input type="radio" name="decision" id="question2" value="agree" v-model="answer.decision" v-on:click="addAnswer($event), agreeForm.question2 = false, whyForm.question2 = true">
-              <label for="agree">
-                <h2>Agree</h2>
-              </label>
-              <input type="radio" name="decision" id="question2" value="disagree" v-model="answer.decision" v-on:click="addAnswer($event), agreeForm.question2 = false, whyForm.question2 = true">
-              <label for="disagree">
-                <h2>Disagree</h2>
-              </label>
-              <input type="radio" name="decision" id="question2" value="disagree" v-model="answer.decision" v-on:click="addAnswer($event), agreeForm.question2 = false, whyForm.question2 = true">
-              <label for="disagree">
-                <h2>Not sure</h2>
-              </label>
-            </div>
-            <transition name="slide">
-              <div class="form-group" v-show="whyForm.question2">
-                <input class="form-control" placeholder="Why?" v-model="why.response">
-                <button id="question2" type="button" class="btn btn-primary" v-on:click = "addWhy($event), whyForm.question2 = false">Submit</button>
-              </div>
-            </transition>
-          </form>
-          <p class="article-text">Instead of engaging in conspiracy theories about President Trump’s Russian connections, liberals would be better served demanding that Congress exercise its powers of the purse and investigation to ensure honesty and integrity in the confirmation of a new F.B.I. director and in the operation of the agency.</p>
-          <p class="article-text">Frankly, by firing Mr. Comey, President Trump did what President Barack Obama should have done. Most Americans recognize the cynical and hypocritical reactions now being deployed over this. I suspect most Americans do not even care. Hillary Clinton’s supporters have long wanted Mr. Comey out, and President Trump’s supporters will stand by their man.</p>
-          <p class="article-text">In continuing to misread the political situation and reality itself, the left is setting itself up for failure and disappointment. The odds are that the president comes out of a Russian investigation unscathed. Even if Democrats take back Congress in 2018, they would probably fall short of the two-thirds vote in the Senate needed to convict him of impeachable offenses.</p>
-          <p class="article-text">Impeachment is not on the horizon, and this is not the beginning of the end of the Trump presidency. It is just one day closer to the next presidential election. And until then, and maybe longer, I’m betting Donald Trump will remain our president.</p>
-          <p class="article-text"></p>
-          <p class="article-text"></p>
-          <p class="article-text"></p>
-          <button class="btn btn-default btn-lg submission white-text blue center" style="margin-top: 30px;" id="submit-article" href="#submit-article-modal" data-toggle="modal">Submit an Article</button>
-
-
-          <div class="list-group">
-
-            <li v-for="answer in answers">
-              {{ answer.question }}
-              {{ answer.decision }}
-            </li>
-
-            <li v-for="why in whys">
-              {{ why.question }}
-              {{ why.response }}
-            </li>
-          </div>
-        </div>
-
-
       </div>
+
+
+      <div class="col-sm-7" id="copy">
+
+        <h1 class="section-heading center-heading margin-top-0" id="article-title">The Fantasy of Impeachment</h1>
+
+
+        <p class='article-text'><mark v-on:click="agreeForm.question1 = true">After President Trump fired James Comey, the F.B.I. director, the media and political left ignited with talk of impeachment. “We are certainly moving down that path,” said Representative Ruben Gallego, Democrat of Arizona. “The Comey Firing May Be the Beginning of the End of the Trump Administration” shouted a headline in New York magazine.</mark></p>
+        <form>
+          <div class="btn-group" v-if="agreeForm.question1">
+            <label class="btn u-button">
+              <input type="radio" name="decision" id="question1" value="agree" class="raadio" v-model="answer.decision" v-on:click="addAnswer($event), agreeForm.question1 = false, whyForm.question1 = true">Agree
+            </label>
+            <label class="btn u-button">
+              <input type="radio" name="decision" id="question1" value="disagree" class="raadio" v-model="answer.decision" v-on:click="addAnswer($event), agreeForm.question1 = false, whyForm.question1 = true">Disagree
+            </label>
+            <label class="btn u-button">
+              <input type="radio" name="decision" id="question1" value="notsure" class="raadio" v-model="answer.decision" v-on:click="addAnswer($event), agreeForm.question1 = false, whyForm.question1 = true">Not sure
+            </label>
+          </div>
+          <transition name="slide">
+            <div class="form-group" v-show="whyForm.question1">
+              <input class="form-control" placeholder="Why?" v-model="why.response">
+              <button id="question1" type="button" class="btn btn-primary" v-on:click = "addWhy($event), whyForm.question1 = false">Submit</button>
+            </div>
+          </transition>
+        </form>
+        <p class="article-text">This is a fantasy.</p>
+        <p class="article-text">Don’t get me wrong. I have long had concerns about President Trump. He can contradict himself within separate clauses of a single sentence, then lie about the contradiction. He lacks the depth of knowledge a president should have and seems far more concerned with what people on TV say about him than what is happening around him. Even if there is no evidence that the F.B.I. is investigating the president himself, it is reportedly looking at ties between advisers to his campaign and Russia.</p>
+        <p class="article-text">But let’s be realistic. Though the firing looks bad, it was also reasonable.</p>
+        <p class="article-text">Consider the case made by Rod Rosenstein, the highly respected deputy attorney general, who was recently confirmed by more than 90 members of the Senate. In a memo to the president, Mr. Rosenstein said Mr. Comey had usurped the attorney general’s authority last July by announcing his conclusion that the F.B.I.’s investigation into Hillary Clinton’s emails should be closed without prosecution.</p>
+        <p class="article-text">“It is not the function of the director to make such an announcement,” Mr. Rosenstein wrote. “Compounding the error, the director ignored another longstanding principle: We do not hold press conferences to release derogatory information about the subject of a declined criminal investigation.”</p>
+        <p class="article-text">Mr. Rosenstein likewise documented concerns from attorneys general from both parties. “The way the director handled the conclusion of the email investigation was wrong,” he concluded. “As a result, the F.B.I. is unlikely to regain public and congressional trust until it has a director who understands the gravity of the mistakes and pledges never to repeat them.”</p>
+        <p class="article-text">Mr. Comey only made things worse for himself by giving wrong information to Congress about emails belonging to Huma Abedin, Mrs. Clinton’s aide. Mr. Comey’s testimony was under oath, and the F.B.I. had to retract its own director’s testimony. No one can deny this was a bad thing.</p>
+        <p class="article-text">Though they are criticizing his firing now, Democrats were calling for Mr. Comey’s head after he reopened the Clinton email investigation late in the campaign last year. If he was so bad then, is he really so good now? It also is telling that two of President Trump’s most vocal critics within the Republican Party, Senator Susan Collins of Maine and Senator Lindsey Graham of South Carolina, both embraced Mr. Comey’s termination.</p>
+        <p class="article-text">Underlying liberals’ calls for impeachment is the belief that Mr. Comey’s firing will squelch the F.B.I.’s investigation into Russian campaign meddling. But there are good reasons to think that the inquiry won’t be affected. The F.B.I.’s interim leader, Andrew McCabe, vowed on Thursday that the investigation would continue apace. Likewise, the Senate will have to confirm Mr. Trump’s nominee to replace Mr. Comey, and Republicans seem determined to keep the bureau independent. More than half the Senate Republicans have already raised concerns about how Mr. Comey was fired. Many of them are privately worried that Mr. Trump could lead them to electoral disaster. They are not going to serve as yes men for a yes man at the F.B.I.</p>
+        <p class="article-text"> <mark v-on:click="agreeForm.question2 = true">Last, along with the F.B.I.’s counterintelligence investigation into Russian meddling, there is a Senate investigation. </mark>The chairman of the Intelligence Committee, Senator Richard Burr, Republican of North Carolina, and its ranking member, Senator Mark Warner, Democrat of Virginia, have criticized Mr. Trump’s handling of the Comey termination and are committed to the investigation. A number of other Republican Senators, including John McCain and Ben Sasse, have also raised questions about the firing.</p>
+        <form>
+          <div class="form-group" v-if="agreeForm.question2">
+            <input type="radio" name="decision" id="question2" value="agree" v-model="answer.decision" v-on:click="addAnswer($event), agreeForm.question2 = false, whyForm.question2 = true">
+            <label for="agree">
+              <h2>Agree</h2>
+            </label>
+            <input type="radio" name="decision" id="question2" value="disagree" v-model="answer.decision" v-on:click="addAnswer($event), agreeForm.question2 = false, whyForm.question2 = true">
+            <label for="disagree">
+              <h2>Disagree</h2>
+            </label>
+            <input type="radio" name="decision" id="question2" value="disagree" v-model="answer.decision" v-on:click="addAnswer($event), agreeForm.question2 = false, whyForm.question2 = true">
+            <label for="disagree">
+              <h2>Not sure</h2>
+            </label>
+          </div>
+          <transition name="slide">
+            <div class="form-group" v-show="whyForm.question2">
+              <input class="form-control" placeholder="Why?" v-model="why.response">
+              <button id="question2" type="button" class="btn btn-primary" v-on:click = "addWhy($event), whyForm.question2 = false">Submit</button>
+            </div>
+          </transition>
+        </form>
+        <p class="article-text">Instead of engaging in conspiracy theories about President Trump’s Russian connections, liberals would be better served demanding that Congress exercise its powers of the purse and investigation to ensure honesty and integrity in the confirmation of a new F.B.I. director and in the operation of the agency.</p>
+        <p class="article-text">Frankly, by firing Mr. Comey, President Trump did what President Barack Obama should have done. Most Americans recognize the cynical and hypocritical reactions now being deployed over this. I suspect most Americans do not even care. Hillary Clinton’s supporters have long wanted Mr. Comey out, and President Trump’s supporters will stand by their man.</p>
+        <p class="article-text">In continuing to misread the political situation and reality itself, the left is setting itself up for failure and disappointment. The odds are that the president comes out of a Russian investigation unscathed. Even if Democrats take back Congress in 2018, they would probably fall short of the two-thirds vote in the Senate needed to convict him of impeachable offenses.</p>
+        <p class="article-text">Impeachment is not on the horizon, and this is not the beginning of the end of the Trump presidency. It is just one day closer to the next presidential election. And until then, and maybe longer, I’m betting Donald Trump will remain our president.</p>
+        <p class="article-text"></p>
+        <p class="article-text"></p>
+        <p class="article-text"></p>
+
+        <button class="btn btn-default btn-lg submission white-text blue center" style="margin-top: 30px;" id="submit-article" href="#submit-article-modal" data-toggle="modal">Submit an Article</button>
+
+
+
+        <h1 class="section-heading center-heading margin-top-0" id="article-title">Universal Basic Income Is A Lazy Solution To The Oncoming Labor Crisis</h1>
+
+
+        <p class='article-text'>Silicon Valley has looked into the future and seen what many of us are seeing – automation and technology are replacing jobs faster than businesses are creating them. What started as a mere murmurings has reverberated louder into an open call from some of the wealthiest businesspeople in the United States including Mark Zuckerberg and Elon Musk for universal basic income.</p>
+
+        <p class='article-text'>Universal basic income is a stipend paid by the government to individuals simply for being alive. The idea began in Europe and has been gaining momentum in several countries. The principal behind the idea is that it serves as a safety net for unemployment due to market forces such as automation. Several countries have begun experimenting with a basic income including an experiment run in Ontario, Canada, which distributed a stipend of $12, 616 as its basic income. The idea has started to gain traction in America.</p>
+
+        <p class='article-text'>Hawaii recently became the first state to make a major push towards a universal basic income. As of this May, the Hawaii state legislature adopted HCR 89 calling for the Department of Labor and Industrial Relations and the Department of Business, Economic Development, and Tourism to convene a basic income economic security working group to begin to structure a universal basic income. The relevant text from the resolution gives the group’s focus:</p>
+
+        <p class='article-text'>WHEREAS, while the United States is the wealthiest nation in the world, many families, individuals, and businesses in Hawaii have been struggling to keep pace with the increasing cost of living as economic inequality widens the gap between a few top earners and the middle and lower class, the latter of which has seen its overall share of income decline in recent decades; and</p>
+
+        <p class='article-text'>WHEREAS, efforts to increase wages, benefits, and working conditions are important steps to assist local families in the short-term, but a paradigm shift in policy will soon be necessary as automation, innovation, and disruption begin to rapidly worsen economic inequality by displacing significant numbers of jobs in Hawaii’s transportation, food service, tourism, retail, medical, legal, insurance, and other sectors …</p>
+
+        <p class='article-text'>Hawaii state representative Chris Lee led the push towards a basic income and predicted that Hawaii’s future economic troubles due to Silicon Valley innovations like self-driving cars and Airbnb to be potentially hazardous to Hawaii’s tourist-dependent economy. Though this seems to be an anticipatory measure, however; as of April 2017, Hawaii’s unemployment rate was at a ten year low. This fact didn’t stop the Democrat dominated state legislature from approving the measure.</p>
+
+        <p class='article-text'>In other parts of the country, calls in for universal basic income are growing. In California, Silicon Valley has made well known their support for a basic income citing the necessity of social security from the jobs they will take away with their businesses. In the media, a cursory search of liberal publications reveals a bolder comfort with an idea of providing a stipend to people for doing nothing. In Georgia, former documentary assistant turned congressional candidate, Jon Ossoff, went above and beyond agreeing to a $15 minimum wage and instead gave a nod to his California benefactors by saying he would push for a “living wage” in the final debate for the Georgia Sixth Congressional district special election. It’s easy to see the sly rhetorical distinction between “living wage” and “basic income.”</p>
+
+        <p class='article-text'>There is very little hope that this trend will change without forward-thinking leaders who will refuse to rest on lazy ideas like the universal basic income.</p>
+
+        <p class='article-text'>Our politicians have been able to see technology replacing jobs for decades now and made little adjustments other than to make more individuals reliant on the government for their economic well being. I echo what I wrote in The Hill last September that automation would require lawmakers to be innovative in their approaches for creating jobs. Many lawmakers and those in the best position to see automation replacing jobs, such as CEO’s in Silicon Valley, it would appear are opting towards a more top-down income redistribution in the form of a universal basic income rather than wrestle with retraining workers, re-calibrating the economy, or encouraging innovation to offset job loss.</p>
+
+        <p class='article-text'>This is to simply say: universal basic income is a lazy, socialist solution to future unemployment problems. There are dozens of issues with universal basic income, but I will list some of the bigger issues below. As to avoid being an armchair critic who only points out mistakes, I will also offer up some of my own solutions or alternatives to reposition our economy.</p>
+
+        <p class='article-text'>First, universal basic income stifles economic growth through exorbitant tax rates. To pay for a basic income that would be a living income or sustainable income requires taxation of wage earners well above 50% for the highest and second highest tax brackets. Offsetting high cost of living cities like New York, San Francisco, and Washington, D.C. would necessitate a tax rate unsustainable for most Americans. This leads to either a subsidy for poor Americans, or force many low-income individuals to relocate out of major cities. Needless to say, this exodus hampers innovation.</p>
+
+        <p class='article-text'>With our current immigration debate, this analysis presumes a comparable rate of illegal immigration and immigration as we have seen in recent years. If history is any indication, the moment a universal basic income comes into law for U.S. citizens, Mayor de Blasio and Governor Cuomo will rush to the front of public debate to argue that universal basic income should be extended to undocumented workers as well since it’s a human right. If that happens, keep your wallets open because that’s going to hurt.</p>
+
+        <p class='article-text'>Second, universal basic income is a mere proxy for socialism. The plan relies on the assumption that the income will be a social safety net to hedge against unemployment. In a perfect world, individuals would be able to save to offset economic unpredictability. This is an interesting argument to hear coming from a Left who finds the thought of alternatives to social security and Obamacare in the form of private savings account abhorrent. If liberals don’t trust Americans to allocate their money correctly, how can they reasonably suspect that this universal income will be treated differently to realistically serve as a safety net?</p>
+
+        <p class='article-text'>Finally, a basic universal income only hedges against future unemployment rather than creating opportunities in the present to anticipate economic changes. If automation continues to replace jobs, more Americans will shift from universal basic income being a subsidy to their earned wages towards it being a necessity in unemployment. It’s easy to see how this would spiral the economy into the garbage heap. As workers exit the workforce, fewer workers pay into the pool for distribution meaning that there is less money for the same amount of government handouts. To accommodate the gap, either taxes would have to go up on higher income earners to account for a depleting workforce, or businesses and the government would have to create alternatives to get people to work, or the government would have to require businesses to hire individuals. (Beginning to sound a bit like Atlas Shrugged.) All are bad alternatives. Creating a safety net that promises no ability to put people to work is giving them $1,000, not teaching them to build boats or sail, and asking them to get off an island. </p>
+
+        <p class='article-text'>There is still time to right the ship. As I said at the outset, nay saying without a solution is as empty as the politicians that will inevitably thrust the universal basic income upon us. There are many avenues to avoiding the calamity from unemployment Silicon Valley predicts from their innovation. I will list several here.</p>
+
+        <p class='article-text'>First, public schools and innovative STEM charter schools need the resources to teach STEM subjects and trade skills. Understanding how the workforce is being educated and what they are learning are far too often overlooked. For one, a realistic alternative would be to increase trade skills education during high school education while it is cheaper in order to provide career paths for students that do not seek a college degree while equipping them with a skill. It will be a long time before a plumber or electrician can be replaced by a machine. Access to STEM early in education will also improve female participation in STEM fields which has been noticeably absent and will lead to greater market participation in a field that will continue to grow as automation boxes out other fields. Targeting areas that lead to innovation and businesses can allocate resources will put people to work.</p>
+
+        <p class='article-text'>Please do not misinterpret me to suggest that we need more education. I’d wager there are less than 1,000 people in America using an art history degree for its intended purpose. Instead, this is a proposal to reallocate resources to target types of education where humans will be valuable – trades that machines have difficulty replacing and STEM fields where humans create the machines who replace them.</p>
+
+        <p class='article-text'>My second proposal is to unburden small businesses. Legislators should be in the business of making it easier for small businesses to operate and comply with government regulation. If state and federal regulation is reduced, small businesses will be best situated to create jobs cheaply. Healthcare constantly being in flux, taxation changes, and legal hurdles make running a small business and creating jobs difficult and in an economy that many predict will desperately need to create employment, government doesn’t need to be a formidable burden in that process.</p>
+
+        <p class='article-text'>My proposals are not perfect. There are plenty of holes in these proposals and many require intensive policy debates. The debates are worth having because a universal basis income is a road towards a dying economy – settling on a universal basic income is both lazy and simplistic. Without real ingenuity in the way we approach our workforce, we may be doomed to an economy bereft of innovation and liberty.</p>
+
+
+
+
+
+
+        <div class="list-group">
+
+          <li v-for="answer in answers">
+            {{ answer.question }}
+            {{ answer.decision }}
+          </li>
+
+          <li v-for="why in whys">
+            {{ why.question }}
+            {{ why.response }}
+          </li>
+        </div>
+      </div>
+
+
     </div>
+  </div>
 
-    <!-- FOOTER -->
-    <footer>
-      <div class="row white">
-        <div class="col-xs-12">
-          <img class="section-image img-responsive logo bottom-logo center-block" src="img/logo.png" alt="Logo">
-        </div>
-        <div class="col-xs-6 col-sm-6 align-left-except-xs">
-          <p>&copy; 2017 Flipside, Inc.</p>
-        </div>
-        <div class="col-xs-12 col-sm-6 align-right-except-xs">
-          <p><a href="http://flipsidetalk.com/legal/privacy">Privacy</a> &middot; <a href="http://flipsidetalk.com/legal/terms">Terms</a></p>
-        </div>
-      </div>
-    </footer>
-  </div><!-- /.container -->
-</main>
+  <!-- FOOTER
+  <footer>
+  <div class="row white">
+  <div class="col-xs-12">
+  <img class="section-image img-responsive logo bottom-logo center-block" src="img/logo.png" alt="Logo">
+</div>
+<div class="col-xs-6 col-sm-6 align-left-except-xs">
+<p>&copy; 2017 Flipside, Inc.</p>
+</div>
+<div class="col-xs-12 col-sm-6 align-right-except-xs">
+<p><a href="http://flipsidetalk.com/legal/privacy">Privacy</a> &middot; <a href="http://flipsidetalk.com/legal/terms">Terms</a></p>
+</div>
+</div>
+</footer>
+</div> -->    <!-- /.container -->
 
 <!--  <button class="btn btn-default btn-lg submission white-text blue center in-paragraph" id="your-thoughts" href="#your-thoughts-modal" data-toggle="modal">Tell Us Your Thoughts</button> -->
 
@@ -352,46 +396,49 @@
 
 <script src="Chart.min.js"> </script>
 
-  <!-- JQuery and Bootstrap core JS -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- JQuery and Bootstrap core JS -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-  <!-- Firebase script -->
-  <script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
+<!-- Firebase script -->
+<script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
 
 
-  <!-- Custom script -->
-  <script src="scripts/main.js"></script>
+<!-- Custom script -->
+<script src="scripts/main.js"></script>
 
-  <!--vue.js scripts-->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.4/vue.js"></script>
-  <script src="scripts/app.js"></script>
+<!--
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.10.8/esm/popper-utils.js"></script>
+-->
+<!--vue.js scripts-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.4/vue.js"></script>
+<script src="scripts/app.js"></script>
 
-  <!--chart.js scripts-->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js" />
-  <script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyAnahytBylA9T6xbVKoCbu-vkfHlv8c2Qk",
-    authDomain: "flipside-beta-site.firebaseapp.com",
-    databaseURL: "https://flipside-beta-site.firebaseio.com",
-    projectId: "flipside-beta-site",
-    storageBucket: "flipside-beta-site.appspot.com",
-    messagingSenderId: "50648410572"
-  };
+<!--chart.js scripts-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js" />
+<script>
+// Initialize Firebase
+var config = {
+  apiKey: "AIzaSyAnahytBylA9T6xbVKoCbu-vkfHlv8c2Qk",
+  authDomain: "flipside-beta-site.firebaseapp.com",
+  databaseURL: "https://flipside-beta-site.firebaseio.com",
+  projectId: "flipside-beta-site",
+  storageBucket: "flipside-beta-site.appspot.com",
+  messagingSenderId: "50648410572"
+};
 
-  firebase.initializeApp(config);
-  </script>
-  <script>
-  // Google Analytics
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+firebase.initializeApp(config);
+</script>
+<script>
+// Google Analytics
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-97371368-1', 'auto');
-  ga('send', 'pageview');
+ga('create', 'UA-97371368-1', 'auto');
+ga('send', 'pageview');
 
-  </script>
+</script>
 </body>
 </html>
