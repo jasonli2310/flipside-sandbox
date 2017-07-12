@@ -90,7 +90,7 @@
         <div class="u-alignMiddle u-inlineBlock u-verticalAlignTop u-height65">
           <div class="u-alignBlock">
             <div class="buttonset">
-              <a class="button"href="www.google.com">Sign in / Sign up</a>
+              <a class="button" href="#sign-in-modal" data-toggle="modal">Sign in / Sign up</a>
             </div>
           </div>
         </div>
@@ -105,7 +105,7 @@
           <p>Read stories by:</p>
         </li>
         <li class="metabar-navItem u-fontSize14 u-inlineBlock u-textUppercase u-letterSpacing003 u-textColorNormal u-paddingTop5 u-paddingRight20">
-          <a class="navlink" href="www.google.com">Sidd S.</a>
+          <a class="navlink" href="www.google.com">George S.</a>
         </li>
         <li class="metabar-navItem u-fontSize14 u-inlineBlock u-textUppercase u-letterSpacing003 u-textColorNormal u-paddingTop5 u-paddingRight20">
           <a class="navlink" href="www.google.com">Baxter S.</a>
@@ -129,7 +129,6 @@
     <div class="modal-content blue-modal-body">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-
       </div>
       <div class="modal-body">
         <div class="row section blue white-text" style="height: auto;">
@@ -157,6 +156,7 @@
     </div>
   </div>
 </div>
+
 <div class="modal fade" id="submit-article-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content blue-modal-body">
@@ -188,6 +188,68 @@
     </div>
   </div>
 </div>
+
+
+<!-- BEGIN # MODAL LOGIN -->
+<div class="modal fade" id="sign-in-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+  </button>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" align="center">
+        <h2>Flipside</h2>
+        <h3 class="weight-lighter">Enter your email to sign in or create an account</h3>
+
+
+      </div>
+
+      <!-- Begin # Login Form -->
+      <form id="login-form">
+        <div class="modal-body">
+          <div class="overlay-content">
+            <div class="u-paddingTop5">
+              Email Address
+            </div>
+            <div class="input-group">
+              <input type="email" name="email" placeholder="jason@flipside.com" class="input-email"value="">
+
+            </div>
+
+            <div class="u-paddingTop5">
+              password
+            </div>
+            <div class="input-group">
+              <input type="password" name="password" class="input-email" value="">
+
+            </div>
+
+
+          </div>
+
+          <div class="checkbox">
+            <label>
+              <input type="checkbox"> Remember me
+            </label>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <div>
+            <button type="submit" class="btn btn-primary btn-lg btn-block">Sign Up</button>
+          </div>
+          <div>
+            <button id="login_lost_btn" type="button" class="btn btn-link">Lost Password?</button>
+            <button id="login_register_btn" type="button" class="btn btn-link">Register</button>
+          </div>
+        </div>
+      </form>
+      <!-- End # Login Form -->
+    </div>
+  </div>
+</div>
+<!-- END # MODAL LOGIN -->
+
 <div class="container content article">
   <div class="section-content u-maxWidth1500 u-paddingRight20 u-paddingLeft20">
 
@@ -200,6 +262,7 @@
             </canvas>
 
             <div class="opinion-result centered" id="opresult">
+              <h4>Learn about others:</h4>
               <div class="learn-more u-paddingRight20" style="display:inline;" v-for="group in group">
                 <a class="u-paddingRight20 clusterbutton" v-bind:style="{ color: colors[group.name]}" :id="group.name" v-on:click="select($event)">{{group.name}}</a>
               </div>
@@ -243,10 +306,14 @@
 
       <div class="col-sm-7" id="copy">
 
-        <h1 class="section-heading center-heading margin-top-0" id="article-title">The Fantasy of Impeachment</h1>
 
+        <h1 class="section-heading center-heading margin-top-0" id="article-title">Would taxing robots help the people whose jobs they’ll take?</h1>
 
-        <p class='article-text'><mark v-on:click="agreeForm.question1 = true">After President Trump fired James Comey, the F.B.I. director, the media and political left ignited with talk of impeachment. “We are certainly moving down that path,” said Representative Ruben Gallego, Democrat of Arizona. “The Comey Firing May Be the Beginning of the End of the Trump Administration” shouted a headline in New York magazine.</mark></p>
+        <p class='article-text'>Automation may soon affect even industries and jobs we thought were immune, so what should countries do to prepare for those left jobless and behind? Bill Gates recently offered a simple solution: Tax the use of robots. He argues that such a tax would both “temporarily slow down the spread of automation” and fund social safety net programs for those who lose their jobs to technology.</p>
+
+        <p class='article-text'>Gates is not the only one to suggest the idea. French presidential candidate Benoit Hamon of the Socialist Party recently proposed a universal basic income partially funded by a robot tax. The European parliament also just voted down a proposal to fund support for workers who lost their jobs due to “robotics and AI” through a robot tax.</p>
+
+        <p class='article-text'><mark v-on:click="agreeForm.question1 = true">While it is of vital public policy interest to support technology-displaced workers, the premise of a tax on the use of robots raises several thorny issues. One is the difficulty of specifying which kinds of robotic automation should be taxed, and more generally, what counts as a robot.</mark></p>
         <form>
           <div class="btn-group" v-if="agreeForm.question1">
             <label class="btn u-button">
@@ -266,29 +333,20 @@
             </div>
           </transition>
         </form>
-        <p class="article-text">This is a fantasy.</p>
-        <p class="article-text">Don’t get me wrong. I have long had concerns about President Trump. He can contradict himself within separate clauses of a single sentence, then lie about the contradiction. He lacks the depth of knowledge a president should have and seems far more concerned with what people on TV say about him than what is happening around him. Even if there is no evidence that the F.B.I. is investigating the president himself, it is reportedly looking at ties between advisers to his campaign and Russia.</p>
-        <p class="article-text">But let’s be realistic. Though the firing looks bad, it was also reasonable.</p>
-        <p class="article-text">Consider the case made by Rod Rosenstein, the highly respected deputy attorney general, who was recently confirmed by more than 90 members of the Senate. In a memo to the president, Mr. Rosenstein said Mr. Comey had usurped the attorney general’s authority last July by announcing his conclusion that the F.B.I.’s investigation into Hillary Clinton’s emails should be closed without prosecution.</p>
-        <p class="article-text">“It is not the function of the director to make such an announcement,” Mr. Rosenstein wrote. “Compounding the error, the director ignored another longstanding principle: We do not hold press conferences to release derogatory information about the subject of a declined criminal investigation.”</p>
-        <p class="article-text">Mr. Rosenstein likewise documented concerns from attorneys general from both parties. “The way the director handled the conclusion of the email investigation was wrong,” he concluded. “As a result, the F.B.I. is unlikely to regain public and congressional trust until it has a director who understands the gravity of the mistakes and pledges never to repeat them.”</p>
-        <p class="article-text">Mr. Comey only made things worse for himself by giving wrong information to Congress about emails belonging to Huma Abedin, Mrs. Clinton’s aide. Mr. Comey’s testimony was under oath, and the F.B.I. had to retract its own director’s testimony. No one can deny this was a bad thing.</p>
-        <p class="article-text">Though they are criticizing his firing now, Democrats were calling for Mr. Comey’s head after he reopened the Clinton email investigation late in the campaign last year. If he was so bad then, is he really so good now? It also is telling that two of President Trump’s most vocal critics within the Republican Party, Senator Susan Collins of Maine and Senator Lindsey Graham of South Carolina, both embraced Mr. Comey’s termination.</p>
-        <p class="article-text">Underlying liberals’ calls for impeachment is the belief that Mr. Comey’s firing will squelch the F.B.I.’s investigation into Russian campaign meddling. But there are good reasons to think that the inquiry won’t be affected. The F.B.I.’s interim leader, Andrew McCabe, vowed on Thursday that the investigation would continue apace. Likewise, the Senate will have to confirm Mr. Trump’s nominee to replace Mr. Comey, and Republicans seem determined to keep the bureau independent. More than half the Senate Republicans have already raised concerns about how Mr. Comey was fired. Many of them are privately worried that Mr. Trump could lead them to electoral disaster. They are not going to serve as yes men for a yes man at the F.B.I.</p>
-        <p class="article-text"> <mark v-on:click="agreeForm.question2 = true">Last, along with the F.B.I.’s counterintelligence investigation into Russian meddling, there is a Senate investigation. </mark>The chairman of the Intelligence Committee, Senator Richard Burr, Republican of North Carolina, and its ranking member, Senator Mark Warner, Democrat of Virginia, have criticized Mr. Trump’s handling of the Comey termination and are committed to the investigation. A number of other Republican Senators, including John McCain and Ben Sasse, have also raised questions about the firing.</p>
+
+
+        <p class='article-text'><mark v-on:click="agreeForm.question2 = true">What distinguishes a machine we now accept as integral to economic productivity from a robot whose activity we would wish to tax?</mark> Washing machines, for example, certainly put many launderers out of work, but they also helped make it possible for millions of women to join the paid workforce. <mark v-on:click="agreeForm.question3 = true">A robot tax, as Gates proposed, may end up being a tax on innovation and would force Congress and the IRS to make the perhaps impossible distinction between labor-saving machines and labor-enhancing ones.</mark></p>
+
         <form>
-          <div class="form-group" v-if="agreeForm.question2">
-            <input type="radio" name="decision" id="question2" value="agree" v-model="answer.decision" v-on:click="addAnswer($event), agreeForm.question2 = false, whyForm.question2 = true">
-            <label for="agree">
-              <h2>Agree</h2>
+          <div class="btn-group" v-if="agreeForm.question2">
+            <label class="btn u-button">
+              <input type="radio" name="decision" id="question2" value="agree" class="raadio" v-model="answer.decision" v-on:click="addAnswer($event), agreeForm.question2 = false, whyForm.question2 = true">Agree
             </label>
-            <input type="radio" name="decision" id="question2" value="disagree" v-model="answer.decision" v-on:click="addAnswer($event), agreeForm.question2 = false, whyForm.question2 = true">
-            <label for="disagree">
-              <h2>Disagree</h2>
+            <label class="btn u-button">
+              <input type="radio" name="decision" id="question2" value="disagree" class="raadio" v-model="answer.decision" v-on:click="addAnswer($event), agreeForm.question2 = false, whyForm.question2 = true">Disagree
             </label>
-            <input type="radio" name="decision" id="question2" value="disagree" v-model="answer.decision" v-on:click="addAnswer($event), agreeForm.question2 = false, whyForm.question2 = true">
-            <label for="disagree">
-              <h2>Not sure</h2>
+            <label class="btn u-button">
+              <input type="radio" name="decision" id="question2" value="notsure" class="raadio" v-model="answer.decision" v-on:click="addAnswer($event), agreeForm.question2 = false, whyForm.question2 = true">Not sure
             </label>
           </div>
           <transition name="slide">
@@ -298,16 +356,82 @@
             </div>
           </transition>
         </form>
-        <p class="article-text">Instead of engaging in conspiracy theories about President Trump’s Russian connections, liberals would be better served demanding that Congress exercise its powers of the purse and investigation to ensure honesty and integrity in the confirmation of a new F.B.I. director and in the operation of the agency.</p>
-        <p class="article-text">Frankly, by firing Mr. Comey, President Trump did what President Barack Obama should have done. Most Americans recognize the cynical and hypocritical reactions now being deployed over this. I suspect most Americans do not even care. Hillary Clinton’s supporters have long wanted Mr. Comey out, and President Trump’s supporters will stand by their man.</p>
-        <p class="article-text">In continuing to misread the political situation and reality itself, the left is setting itself up for failure and disappointment. The odds are that the president comes out of a Russian investigation unscathed. Even if Democrats take back Congress in 2018, they would probably fall short of the two-thirds vote in the Senate needed to convict him of impeachable offenses.</p>
-        <p class="article-text">Impeachment is not on the horizon, and this is not the beginning of the end of the Trump presidency. It is just one day closer to the next presidential election. And until then, and maybe longer, I’m betting Donald Trump will remain our president.</p>
-        <p class="article-text"></p>
-        <p class="article-text"></p>
-        <p class="article-text"></p>
+
+        <form>
+          <div class="btn-group" v-if="agreeForm.question3">
+            <label class="btn u-button">
+              <input type="radio" name="decision" id="question3" value="agree" class="raadio" v-model="answer.decision" v-on:click="addAnswer($event), agreeForm.question3 = false, whyForm.question3 = true">Agree
+            </label>
+            <label class="btn u-button">
+              <input type="radio" name="decision" id="question3" value="disagree" class="raadio" v-model="answer.decision" v-on:click="addAnswer($event), agreeForm.question3 = false, whyForm.question3 = true">Disagree
+            </label>
+            <label class="btn u-button">
+              <input type="radio" name="decision" id="question3" value="notsure" class="raadio" v-model="answer.decision" v-on:click="addAnswer($event), agreeForm.question3 = false, whyForm.question3 = true">Not sure
+            </label>
+          </div>
+          <transition name="slide">
+            <div class="form-group" v-show="whyForm.question3">
+              <input class="form-control" placeholder="Why?" v-model="why.response">
+              <button id="question3" type="button" class="btn btn-primary" v-on:click = "addWhy($event), whyForm.question3 = false">Submit</button>
+            </div>
+          </transition>
+        </form>
+
+        <p class='article-text'>Taxing robots would also fundamentally change the way the United States currently taxes business investment. <mark v-on:click="agreeForm.question4 = true"> Instead of treating equipment as a depreciating asset for which a firm takes a deduction in computing its taxable income, Gates would single out a subset of these investments for a new tax.</mark></p>
+
+        <form>
+          <div class="btn-group" v-if="agreeForm.question4">
+            <label class="btn u-button">
+              <input type="radio" name="decision" id="question4" value="agree" class="raadio" v-model="answer.decision" v-on:click="addAnswer($event), agreeForm.question4 = false, whyForm.question4 = true">Agree
+            </label>
+            <label class="btn u-button">
+              <input type="radio" name="decision" id="question4" value="disagree" class="raadio" v-model="answer.decision" v-on:click="addAnswer($event), agreeForm.question4 = false, whyForm.question4 = true">Disagree
+            </label>
+            <label class="btn u-button">
+              <input type="radio" name="decision" id="question4" value="notsure" class="raadio" v-model="answer.decision" v-on:click="addAnswer($event), agreeForm.question4 = false, whyForm.question4 = true">Not sure
+            </label>
+          </div>
+          <transition name="slide">
+            <div class="form-group" v-show="whyForm.question1">
+              <input class="form-control" placeholder="Why?" v-model="why.response">
+              <button id="question4" type="button" class="btn btn-primary" v-on:click = "addWhy($event), whyForm.question4 = false">Submit</button>
+            </div>
+          </transition>
+        </form>
+        <p class='article-text'>Despite sci-fi tropes, robots make better managers, study says there is also debate among economists over whether robots and automation significantly impacts employment. While a report by researchers at Oxford University estimated 54 percent of jobs in the EU are at risk of “computerization,” another report by the Organization for Economic Cooperation and Development last year estimated only 9 percent of jobs in 21 OECD countries are automatable.</p>
+
+        <p class='article-text'><mark v-on:click="agreeForm.question5 = true">And although automation certainly has it losers – the American steel industry lost 75 percent of its work force between 1962 and 2005 – the creation of new types of jobs and industries may mean that overall employment is not significantly affected.</mark> A recent paper from Georg Graetz of Uppsala University found that industrial robots had no significant effect on overall employment, meaning the total number of hours worked by people in a country stayed around the same even when the use of those devices increased.</p>
+        <form>
+          <div class="btn-group" v-if="agreeForm.question5">
+            <label class="btn u-button">
+              <input type="radio" name="decision" id="question5" value="agree" class="raadio" v-model="answer.decision" v-on:click="addAnswer($event), agreeForm.question5 = false, whyForm.question5 = true">Agree
+            </label>
+            <label class="btn u-button">
+              <input type="radio" name="decision" id="question5" value="disagree" class="raadio" v-model="answer.decision" v-on:click="addAnswer($event), agreeForm.question5 = false, whyForm.question5 = true">Disagree
+            </label>
+            <label class="btn u-button">
+              <input type="radio" name="decision" id="question5" value="notsure" class="raadio" v-model="answer.decision" v-on:click="addAnswer($event), agreeForm.question5 = false, whyForm.question5 = true">Not sure
+            </label>
+          </div>
+          <transition name="slide">
+            <div class="form-group" v-show="whyForm.question5">
+              <input class="form-control" placeholder="Why?" v-model="why.response">
+              <button id="question5" type="button" class="btn btn-primary" v-on:click = "addWhy($event), whyForm.question5 = false">Submit</button>
+            </div>
+          </transition>
+        </form>
+
+        <p class='article-text'>For those left permanently behind by the technological revolution, these facts will understandably be of little comfort. Taxing robots and other technical advances, however, will not make the human consequences of automation and robotics go away.</p>
+
+
+
+        <br><br><br>
+
 
         <button class="btn btn-default btn-lg submission white-text blue center" style="margin-top: 30px;" id="submit-article" href="#submit-article-modal" data-toggle="modal">Submit an Article</button>
 
+
+        <br><br><br>
 
 
         <h1 class="section-heading center-heading margin-top-0" id="article-title">Universal Basic Income Is A Lazy Solution To The Oncoming Labor Crisis</h1>

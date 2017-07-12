@@ -191,9 +191,9 @@ mark:hover{
 }
 
 .button{
-height: 37px;
-font-size: 14px;
-vertical-align: middle;
+  height: 37px;
+  font-size: 14px;
+  vertical-align: middle;
 }
 
 .buttonset{
@@ -254,10 +254,12 @@ vertical-align: middle;
 .u-fixed{
   position: fixed;
 }
+
+
 /*form styles*/
 label {
-    cursor: pointer;
-	}
+  cursor: pointer;
+}
 }
 
 input {
@@ -266,7 +268,66 @@ input {
 }
 
 input:checked + label {
-    background: red;
+  background: red;
+}
+
+/* MODAL STYLES
+---------------------------------------------------*/
+.overlay-dialogue{
+  background-color: #ffff;
+  border-radius: 3px;
+  box-shadow: 0 2px 6px 0 rgba(0,0,0,.44);
+}
+
+.overlay-content{
+  padding: 0 32px 0;
+  margin: 24px 0;
+  font-size: 16px;
+  font-weight: lighter;
+  text-align: left;
+}
+
+.input-group{
+  position: relative;
+  width: 100%
+}
+
+.input-email{
+  border: 0;
+  border-bottom: 1px solid;
+  border-radius: 0;
+  font-size: 18px;
+  font-weight: lighter;
+  padding: 7px;
+  margin: 10px auto;
+  overflow: hidden;
+}
+
+/* #########################################
+#    override the bootstrap configs     #
+######################################### */
+
+.modal-backdrop.in {
+  filter: alpha(opacity=50);
+  opacity: .8;
+}
+
+.modal-content {
+  background-color: white;
+  border: 1px solid #bdc3c7;
+  border-radius: 0px;
+  outline: 0;
+}
+
+.modal-header {
+  min-height: 16.43px;
+  padding: 15px 15px 15px 15px;
+  border-bottom: 3px;
+}
+
+.weight-lighter{
+  font-weight: lighter;
+  font-size: 16px;
 }
 
 /* NAV STYLES
@@ -302,8 +363,8 @@ input:checked + label {
 /* CHART
 -------------------------------------------------- */
 .chart-fixed{
-overflow-y: scroll;
-position: fixed;
+  overflow-y: scroll;
+  position: fixed;
 }
 
 .u-maxHeight350{
@@ -324,32 +385,32 @@ position: fixed;
 }
 
 .clusterbutton{
-font-size: 26px;
-cursor: pointer;
+  font-size: 26px;
+  cursor: pointer;
 
 }
 
 .cl-effect-15 a {
-	color: rgba(0,0,0,0.2);
-	font-weight: 700;
-	text-shadow: none;
+  color: rgba(0,0,0,0.2);
+  font-weight: 700;
+  text-shadow: none;
 }
 
 .cl-effect-15 a::before {
-	color: #fff;
-	content: attr(data-hover);
-	position: absolute;
-	-webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
-	-moz-transition: -moz-transform 0.3s, opacity 0.3s;
-	transition: transform 0.3s, opacity 0.3s;
+  color: #fff;
+  content: attr(data-hover);
+  position: absolute;
+  -webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
+  -moz-transition: -moz-transform 0.3s, opacity 0.3s;
+  transition: transform 0.3s, opacity 0.3s;
 }
 
 .cl-effect-15 a:hover::before,
 .cl-effect-15 a:focus::before {
-	-webkit-transform: scale(0.9);
-	-moz-transform: scale(0.9);
-	transform: scale(0.9);
-	opacity: 0;
+  -webkit-transform: scale(0.9);
+  -moz-transform: scale(0.9);
+  transform: scale(0.9);
+  opacity: 0;
 }
 
 
@@ -686,16 +747,16 @@ footer {
 }
 @@media (max-width:992px) {
   .chart-fixed{
-position: relative; }
-}
+    position: relative; }
+  }
 
 
-/* CONTACT
--------------------------------------------------- */
-.contact-form{
-  background-color: #587A95
-}
+  /* CONTACT
+  -------------------------------------------------- */
+  .contact-form{
+    background-color: #587A95
+  }
 
-.contact-content{
-  height: auto;
-}
+  .contact-content{
+    height: auto;
+  }
