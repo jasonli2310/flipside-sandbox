@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://d3js.org/d3.v4.js"></script>
 
   <!-- Favicons -->
   <link rel="apple-touch-icon" sizes="57x57" href="img/favicon/apple-icon-57x57.png">
@@ -222,10 +223,7 @@
             </div>
             <div class="input-group">
               <input type="password" name="password" class="input-email" value="">
-
             </div>
-
-
           </div>
 
           <div class="checkbox">
@@ -253,87 +251,153 @@
 <div class="container content article">
   <div class="section-content u-maxWidth1500 u-paddingRight20 u-paddingLeft20">
 
-    <div class="row white">
 
-      <div class="col-sm-5 u-paddingTop5">
-        <div>
-          <div id="scatter" class="chart-fixed u-maxWidth400">
-            <canvas id="scatterPlot" width="400" height="350" class="u-maxHeight350">
-            </canvas>
+    <div class="row">
+      <div class="col-sm-offset-0 col-sm-4">
+        <div id="scatter" class="chart-fixed u-maxWidth400">
+          <div class="col-md-4">
+            <div class="d3stuff">
+              <svg viewBox="0 0 500 500" preserveAspectRatio="xMidYMid meet" style="background-color: white;">
+                <!--axis-->
+                <line x1="250" y1="20" x2="250" y2="480" stroke="black" />
+                <line x1="20" y1="250" x2="480" y2="250" stroke="black" />
 
-            <div class="opinion-result centered" id="opresult">
-              <h4>Learn about others:</h4>
-              <div class="learn-more u-paddingRight20" style="display:inline;" v-for="group in group">
-                <a class="u-paddingRight20 clusterbutton" v-bind:style="{ color: colors[group.name]}" :id="group.name" v-on:click="select($event)">{{group.name}}</a>
-              </div>
+                <script type="text/javascript">
+                var dataset = [[250, 250], [400, 300], [340, 160]];
 
-              <div v-if="showing === 'A'">
-                <li>{{group[0].opinion1}}</li>
-                <li>{{group[0].opinion2}}</li>
-                <li>{{group[0].opinion3}}</li>
-              </div>
-              <div v-else-if="showing === 'B'">
-                <li>{{group[1].opinion1}}</li>
-                <li>{{group[1].opinion2}}</li>
-                <li>{{group[1].opinion3}}</li>
-              </div>
-              <div v-else-if="showing === 'C'">
-                <li>{{group[2].opinion1}}</li>
-                <li>{{group[2].opinion2}}</li>
-                <li>{{group[2].opinion3}}</li>
-              </div>
-              <div v-else-if="showing === 'D'">
-                <li>{{group[3].opinion1}}</li>
-                <li>{{group[3].opinion2}}</li>
-                <li>{{group[3].opinion3}}</li>
-              </div>
-              <div v-else-if="showing === 'E'">
-                <li>{{group[4].opinion1}}</li>
-                <li>{{group[4].opinion2}}</li>
-                <li>{{group[4].opinion3}}</li>
-              </div>
-              <div v-else-if="showing === 'F'">
-                <li>{{group[5].opinion1}}</li>
-                <li>{{group[5].opinion2}}</li>
-                <li>{{group[5].opinion3}}</li>
-              </div>
-              <br><br><br>
+
+                var datasetting = [{ "x": 100,   "y": 50},  { "x": 200,  "y": 200}, { "x": 400,  "y": 100}];
+
+                d3.select('svg').selectAll("circle")
+                .data(datasetting)
+                .enter()
+                .append("circle")
+                .attr("cx", function(d){return d.x})
+                .attr("cy", function(d){return d.y})
+                .attr("r", 5)
+                .attr("fill", "rgba(225, 0, 128, 1.0)");
+
+
+                //THIS IS THE SHADED PATH//
+                var shadeData = [
+                  {group: "A", shading:[{ "x": 100,   "y": 50},  { "x": 200,  "y": 200}, { "x": 400,  "y": 100}, { "x": 100,   "y": 50}]},
+                  {group: "B", shading:[{ "x": 50,   "y": 150},  { "x": 250,  "y": 200}, { "x": 400,  "y": 100}, { "x": 100,   "y": 50}]}
+                ];
+
+                //This is the accessor function we talked about above
+                var lineFunction = d3.line()
+                .x(function(d) { return d.x; })
+                .y(function(d) { return d.y; })
+                .curve(d3.curveLinear);
+
+                //The line SVG Path we draw
+
+                for (var i = 0; i < lineData.length; i++) {
+                  d3.select('svg').append("path")
+                  .attr("d", lineFunction(shadeData[i].shading))
+                  .attr("stroke", "none")
+                  .attr("fill", "rgba(189,213,217,0.6)");
+                }
+                </script>
+              </svg>
+              <br>
             </div>
+          </div>
+          <div class="opinion-result centered" id="opresult">
+            <h4>Learn about others:</h4>
+            <div class="learn-more u-paddingRight20" style="display:inline;" v-for="group in group">
+              <a class="u-paddingRight20 clusterbutton" v-bind:style="{ color: colors[group.name]}" :id="group.name" v-on:click="select($event)">{{group.name}}</a>
+            </div>
+            <div v-if="showing === 'A'">
+              <li>{{group[0].opinion1}}</li>
+              <li>{{group[0].opinion2}}</li>
+              <li>{{group[0].opinion3}}</li>
+            </div>
+            <div v-else-if="showing === 'B'">
+              <li>{{group[1].opinion1}}</li>
+              <li>{{group[1].opinion2}}</li>
+              <li>{{group[1].opinion3}}</li>
+            </div>
+            <div v-else-if="showing === 'C'">
+              <li>{{group[2].opinion1}}</li>
+              <li>{{group[2].opinion2}}</li>
+              <li>{{group[2].opinion3}}</li>
+            </div>
+            <div v-else-if="showing === 'D'">
+              <li>{{group[3].opinion1}}</li>
+              <li>{{group[3].opinion2}}</li>
+              <li>{{group[3].opinion3}}</li>
+            </div>
+            <div v-else-if="showing === 'E'">
+              <li>{{group[4].opinion1}}</li>
+              <li>{{group[4].opinion2}}</li>
+              <li>{{group[4].opinion3}}</li>
+            </div>
+            <div v-else-if="showing === 'F'">
+              <li>{{group[5].opinion1}}</li>
+              <li>{{group[5].opinion2}}</li>
+              <li>{{group[5].opinion3}}</li>
+            </div>
+            <br><br><br>
           </div>
         </div>
       </div>
 
+      <!--landing section-->
+      <div class="col-sm-offset-0 col-sm-4">
+      </div>
+      <div class="col-sm-offset-0 col-sm-4"></div>
 
-      <div class="col-sm-7" id="copy">
 
 
-        <h1 class="section-heading center-heading margin-top-0" id="article-title">Would taxing robots help the people whose jobs they’ll take?</h1>
+      <div class="col-sm-offset-4 col-sm-4"></div>
+      <div class="col-sm-4"></div>
+
+      <!--end landing section-->
+
+    </div>
+
+    <div class="row white">
+
+      <div class="col-sm-4 u-paddingTop5">
+      </div>
+
+      <div class="col-sm-8" id="copy">
+
+        <h1 class="section-heading center-heading margin-top-0 weight-lighter" id="article-title">Would taxing robots help the people whose jobs they’ll take?</h1>
+        <p class="center-heading">by George S.</p>
 
         <p class='article-text'>Automation may soon affect even industries and jobs we thought were immune, so what should countries do to prepare for those left jobless and behind? Bill Gates recently offered a simple solution: Tax the use of robots. He argues that such a tax would both “temporarily slow down the spread of automation” and fund social safety net programs for those who lose their jobs to technology.</p>
 
+        <p class="float-left">h jkalsdfjksld fjsdkl fjskdla fjsdkla fjdskl afjksld</p>
         <p class='article-text'>Gates is not the only one to suggest the idea. French presidential candidate Benoit Hamon of the Socialist Party recently proposed a universal basic income partially funded by a robot tax. The European parliament also just voted down a proposal to fund support for workers who lost their jobs due to “robotics and AI” through a robot tax.</p>
 
         <p class='article-text'><mark v-on:click="agreeForm.question1 = true">While it is of vital public policy interest to support technology-displaced workers, the premise of a tax on the use of robots raises several thorny issues. One is the difficulty of specifying which kinds of robotic automation should be taxed, and more generally, what counts as a robot.</mark></p>
         <form>
-          <div class="btn-group" v-if="agreeForm.question1">
-            <label class="btn u-button">
-              <input type="radio" name="decision" id="question1" value="agree" class="raadio" v-model="answer.decision" v-on:click="addAnswer($event), agreeForm.question1 = false, whyForm.question1 = true">Agree
-            </label>
-            <label class="btn u-button">
-              <input type="radio" name="decision" id="question1" value="disagree" class="raadio" v-model="answer.decision" v-on:click="addAnswer($event), agreeForm.question1 = false, whyForm.question1 = true">Disagree
-            </label>
-            <label class="btn u-button">
-              <input type="radio" name="decision" id="question1" value="notsure" class="raadio" v-model="answer.decision" v-on:click="addAnswer($event), agreeForm.question1 = false, whyForm.question1 = true">Not sure
-            </label>
-          </div>
-          <transition name="slide">
-            <div class="form-group" v-show="whyForm.question1">
-              <input class="form-control" placeholder="Why?" v-model="why.response">
-              <button id="question1" type="button" class="btn btn-primary" v-on:click = "addWhy($event), whyForm.question1 = false">Submit</button>
+          <transition name="slide-fade" >
+
+            <div class="btn-group" v-if="agreeForm.question1">
+              <label class="btn u-button">
+                <input type="radio" name="decision" id="question1" value="agree" class="raadio" v-model="answer.decision" v-on:click="addAnswer($event), agreeForm.question1 = false, whyForm.question1 = true">Agree
+              </label>
+              <label class="btn u-button">
+                <input type="radio" name="decision" id="question1" value="disagree" class="raadio" v-model="answer.decision" v-on:click="addAnswer($event), agreeForm.question1 = false, whyForm.question1 = true">Disagree
+              </label>
+              <label class="btn u-button">
+                <input type="radio" name="decision" id="question1" value="notsure" class="raadio" v-model="answer.decision" v-on:click="addAnswer($event), agreeForm.question1 = false, whyForm.question1 = true">Not sure
+              </label>
+            </div>
+
+          </transition>
+
+          <transition name="why-slide-fade">
+            <div class="form-inline" v-show="whyForm.question1">
+              <h4>Hello world</h4>
+              <input class="form-control why-form" placeholder="Why?" v-model="why.response">
+              <button id="question1" type="button" class="btn btn-primary btn-lg" v-on:click = "addWhy($event), whyForm.question1 = false">Submit</button>
             </div>
           </transition>
         </form>
-
 
         <p class='article-text'><mark v-on:click="agreeForm.question2 = true">What distinguishes a machine we now accept as integral to economic productivity from a robot whose activity we would wish to tax?</mark> Washing machines, for example, certainly put many launderers out of work, but they also helped make it possible for millions of women to join the paid workforce. <mark v-on:click="agreeForm.question3 = true">A robot tax, as Gates proposed, may end up being a tax on innovation and would force Congress and the IRS to make the perhaps impossible distinction between labor-saving machines and labor-enhancing ones.</mark></p>
 
@@ -352,7 +416,7 @@
           <transition name="slide">
             <div class="form-group" v-show="whyForm.question2">
               <input class="form-control" placeholder="Why?" v-model="why.response">
-              <button id="question2" type="button" class="btn btn-primary" v-on:click = "addWhy($event), whyForm.question2 = false">Submit</button>
+              <button id="question2" type="button" class="btn-primary" v-on:click = "addWhy($event), whyForm.question2 = false">Submit</button>
             </div>
           </transition>
         </form>
@@ -493,16 +557,15 @@
           </li>
         </div>
       </div>
-
-
     </div>
   </div>
+</div>
 
-  <!-- FOOTER
-  <footer>
-  <div class="row white">
-  <div class="col-xs-12">
-  <img class="section-image img-responsive logo bottom-logo center-block" src="img/logo.png" alt="Logo">
+<!-- FOOTER
+<footer>
+<div class="row white">
+<div class="col-xs-12">
+<img class="section-image img-responsive logo bottom-logo center-block" src="img/logo.png" alt="Logo">
 </div>
 <div class="col-xs-6 col-sm-6 align-left-except-xs">
 <p>&copy; 2017 Flipside, Inc.</p>

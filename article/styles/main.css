@@ -58,7 +58,7 @@ mark:hover{
 }
 
 .u-button{
-  background-color: #E090E0;
+  background-color: #EDDEFB;
   margin-right: 15px;
 }
 
@@ -194,6 +194,7 @@ mark:hover{
   height: 37px;
   font-size: 14px;
   vertical-align: middle;
+  font-weight: lighter;
 }
 
 .buttonset{
@@ -303,6 +304,12 @@ input:checked + label {
   overflow: hidden;
 }
 
+.float-left{
+  padding-top: 30px;
+  max-width: 60px;
+  float: left;
+}
+
 /* #########################################
 #    override the bootstrap configs     #
 ######################################### */
@@ -351,6 +358,7 @@ input:checked + label {
   color: inherit;
   text-decoration: none;
   cursor: pointer;
+  font-weight: lighter;
 }
 
 .navlink:hover{
@@ -415,6 +423,35 @@ input:checked + label {
 
 
 
+/* CSS TRANSITIONS
+-------------------------------------------------- */
+.slide-fade-enter-active{
+  transition: all .5s ease;
+}
+.slide-fade-leave-active{
+  transition: all .3s ease;
+}
+.slide-fade-enter{
+  transform: translateY(-10px);
+  opacity: 0;
+}
+
+.slide-fade-leave-to{
+  transform: translateX(-50px);
+  opacity: 0;
+}
+
+.why-slide-fade-enter-active {
+  transition: all 1s ease;
+  transition-delay: .2s;
+
+}
+
+.why-slide-fade-enter{
+  transform: translateX(40px);
+  opacity: 0;
+}
+
 
 
 /* CONTENT
@@ -456,6 +493,7 @@ input:checked + label {
   padding-top: 16px;
   line-height: 1.80;
   letter-spacing: -.003em;
+  padding-left: 70px;
 }
 
 #article-title{
@@ -523,7 +561,7 @@ input:checked + label {
 
 .section-heading {
   font-size: 38px;
-  font-weight: 500;
+  font-weight: lighter;
   line-height: 1.2;
 }
 .sub-heading{
@@ -648,6 +686,10 @@ blockquote cite:before {
 }
 .form-control-feedback {
   display: none;
+}
+
+.why-form{
+  max-width: 80%;
 }
 /* THEME COLORS
 -------------------------------------------------- */
