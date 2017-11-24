@@ -10,17 +10,18 @@ html {
 body {
   padding-top:70px;
   color: #5a5a5a;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Arbutus Slab', serif;
   background-color: #DB6061;
 }
 body.privacy-terms {
   background-color: #34495D;
   color: #FFFFFF;
 }
+
 .container {
   margin-left: 0;
   margin-right: 0;
-  width: 100%;
+  max-width: 1200px;
 }
 a:focus, a:hover {
   color: #6287A4;
@@ -240,9 +241,8 @@ blockquote cite:before {
 }
 /* THEME COLORS
 -------------------------------------------------- */
-.blue {
+/*.blue {
   background-color: #587A95
-  /*background-color: #6287A4; */
 }
 .dark-blue {
   background-color: #34495D;
@@ -258,7 +258,32 @@ blockquote cite:before {
 }
 .white-text {
   color: #FFFFFF;
+}*/
+
+
+/* THEME COLORS
+-------------------------------------------------- */
+.light-green{
+  background-color: #80e27e;
 }
+.green{
+  background-color: #4caf50;
+}
+.dark-green{
+  background-color: #087f23;
+}
+
+.light-yellow{
+  background-color: #fff263;
+}
+
+.dark-yellow{
+  background-color: #
+}
+
+
+
+
 
 /* FOOTER
 -------------------------------------------------- */

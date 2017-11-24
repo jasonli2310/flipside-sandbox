@@ -73,8 +73,6 @@ var results = new Vue ({
   }
 });
 
-var inputs = [userdata, dataset, dataset2, dataset3];
-
 var colors = ['#DB6061', '#587A95', '#52AEFB', '#85E785', '#d098f0', '#f67dd3'];
 
 var labels = ['A', 'B', 'C', 'D', 'E', 'F'];
